@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "3ft",
+    "slug": "threeft-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "backgroundColor": "#FBF9F5",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#FBF9F5"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.adrianrb.threeft"
+    },
+    "android": {
+      "package": "com.adrianrb.threeft",
+      "adaptiveIcon": {
+        "backgroundColor": "#FBF9F5"
+      }
+    },
+    "web": {
+      "favicon": "./docs/stitch/3ft_social_thrift_feed.png"
+    }
+  }
+}
