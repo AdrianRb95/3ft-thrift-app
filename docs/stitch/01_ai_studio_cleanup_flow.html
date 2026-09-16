@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>3ft • AI Studio Listing Flow</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter & Playfair Display -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-surface": "#30312e",
+            "tertiary-fixed-dim": "#b5cad5",
+            "surface-container-lowest": "#ffffff",
+            "surface": "#fbf9f5",
+            "surface-glass": "rgba(255,255,255,0.75)",
+            "on-secondary-fixed": "#3d050b",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-container": "#fbfdff",
+            "primary": "#6f5740",
+            "on-secondary": "#ffffff",
+            "secondary-fixed": "#ffdad9",
+            "brand-bordeaux": "#732D30",
+            "on-error-container": "#93000a",
+            "on-surface": "#1b1c1a",
+            "surface-container-highest": "#e4e2de",
+            "on-secondary-fixed-variant": "#773033",
+            "brand-gold-hover": "#8F7359",
+            "on-tertiary-fixed-variant": "#364953",
+            "background": "#fbf9f5",
+            "tertiary-container": "#647782",
+            "surface-dim": "#dbdad6",
+            "outline-variant": "#d2c4ba",
+            "surface-bright": "#fbf9f5",
+            "on-primary-container": "#fffbff",
+            "secondary-fixed-dim": "#ffb3b3",
+            "surface-variant": "#e4e2de",
+            "error-container": "#ffdad6",
+            "primary-container": "#8a7057",
+            "on-primary-fixed": "#291806",
+            "surface-container-low": "#f5f3ef",
+            "on-primary-fixed-variant": "#58422d",
+            "secondary": "#944749",
+            "tertiary-fixed": "#d1e6f2",
+            "surface-card": "#FFFFFF",
+            "on-secondary-container": "#7a3235",
+            "brand-gold": "#A78B71",
+            "text-muted": "#9B968F",
+            "primary-fixed": "#feddbf",
+            "text-primary": "#161514",
+            "inverse-primary": "#e0c1a4",
+            "text-secondary": "#6A6661",
+            "surface-container-high": "#eae8e4",
+            "secondary-container": "#ff9e9f",
+            "surface-canvas": "#FBF9F5",
+            "surface-tint": "#725a43",
+            "on-tertiary-fixed": "#091e27",
+            "surface-container": "#efeeea",
+            "inverse-on-surface": "#f2f0ed",
+            "on-background": "#1b1c1a",
+            "primary-fixed-dim": "#e0c1a4",
+            "outline": "#80756c",
+            "on-error": "#ffffff",
+            "tertiary": "#4b5f69",
+            "surface-muted": "#F4EFEA",
+            "border-subtle": "rgba(22, 21, 20, 0.08)",
+            "error": "#ba1a1a",
+            "on-primary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "margin": "1.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "body-text": ["Inter"],
+            "micro-tag": ["Inter"],
+            "display-h1": ["Playfair Display"],
+            "price-hero": ["Playfair Display"],
+            "brand-logo": ["Playfair Display"],
+            "subheading": ["Inter"]
+          },
+          "fontSize": {
+            "body-text": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400" }],
+            "micro-tag": ["10px", { "lineHeight": "14px", "letterSpacing": "0.18em", "fontWeight": "600" }],
+            "display-h1": ["24px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "price-hero": ["20px", { "lineHeight": "24px", "letterSpacing": "0", "fontWeight": "700" }],
+            "brand-logo": ["28px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "subheading": ["15px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Natural studio drop shadow */
+    .studio-shadow {
+      filter: drop-shadow(0 14px 28px rgba(40, 30, 20, 0.12));
+    }
+  </style>
+</head>
+<body class="bg-surface-canvas text-text-primary antialiased selection:bg-brand-gold/20 min-h-screen pb-32">
+<div class="max-w-md mx-auto min-h-screen flex flex-col relative">
+<!-- Top Bar with Dismiss and Progress -->
+<header class="sticky top-0 z-40 bg-surface/80 backdrop-blur-xl border-b border-border-subtle px-margin pt-space-md pb-space-sm">
+<div class="flex items-center justify-between">
+<button aria-label="Dismiss and exit" class="w-9 h-9 rounded-full bg-surface-muted flex items-center justify-center text-text-primary hover:bg-surface-container-high transition-colors active:scale-95" type="button">
+<span class="material-symbols-outlined text-subheading font-subheading">close</span>
+</button>
+<div class="text-center">
+<h1 class="font-display-h1 text-display-h1 tracking-tight text-text-primary">AI Studio Listing</h1>
+</div>
+<!-- Ghost spacer to keep title centered -->
+<div class="w-9 h-9 opacity-0 pointer-events-none"></div>
+</div>
+<!-- Step Indicator -->
+<div class="mt-space-sm flex items-center justify-center gap-space-sm">
+<span class="font-micro-tag text-micro-tag uppercase text-brand-gold tracking-wider">Step 2 of 3: AI Refinement</span>
+<div class="flex items-center gap-1.5 ml-1">
+<div class="w-1.5 h-1.5 rounded-full bg-brand-gold"></div>
+<div class="w-3.5 h-1.5 rounded-full bg-brand-gold"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-container-highest"></div>
+</div>
+</div>
+</header>
+<!-- Main Content Container -->
+<main class="px-margin pt-space-md space-y-space-lg flex-1">
+<!-- Interactive Before / After Studio Frame -->
+<section class="relative bg-surface-card rounded-xl p-space-sm border border-border-subtle shadow-sm overflow-hidden" id="visual-showcase-panel">
+<!-- Top Toolbar with Mode Toggle -->
+<div class="flex items-center justify-between pb-space-sm px-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
+<span class="font-micro-tag text-micro-tag uppercase tracking-wider text-text-secondary">AI Clean-Up Active</span>
+</div>
+<!-- Segmented Pill Selector -->
+<div class="inline-flex p-0.5 rounded-full bg-surface-muted border border-border-subtle" role="tablist">
+<button class="px-2.5 py-1 rounded-full font-micro-tag text-micro-tag uppercase bg-surface-card text-text-primary shadow-xs transition-all" id="view-split-btn" type="button">Split</button>
+<button class="px-2.5 py-1 rounded-full font-micro-tag text-micro-tag uppercase text-text-secondary hover:text-text-primary transition-all" id="view-after-btn" type="button">Studio</button>
+<button class="px-2.5 py-1 rounded-full font-micro-tag text-micro-tag uppercase text-text-secondary hover:text-text-primary transition-all" id="view-before-btn" type="button">Raw</button>
+</div>
+</div>
+<!-- The Image Stage (Dual Image Split / Interactive Comparison Canvas) -->
+<div class="relative w-full aspect-[4/5] rounded-lg overflow-hidden bg-surface-muted select-none group" id="slider-stage">
+<!-- Background: STUDIO ISOLATED GARMENT (After) -->
+<div class="absolute inset-0 w-full h-full bg-gradient-to-b from-[#fbf9f5] via-[#f7f4ed] to-[#ede9df] flex items-center justify-center p-3">
+<img alt="Studio isolated vintage jacket" class="w-full h-full object-contain studio-shadow transition-transform duration-300 pointer-events-none" src="https://lh3.googleusercontent.com/aida/AEtjO1U4O75ZC-8j0G82SMU5EYnyRHWtP4SX9sbvnsamAj8qhNdeggYTKfYNSQyoeAdEPLk5nxeoDbUY83BprsYDUBNwHa0qm57dzk51e_N1E1Fy2DIyA0uos31eZi9-fo1S0OQWvRl2ZVPUfVywwSTX_UsTD-EVyLsOGBo46K5DD6fUL8eVfsIkkK8XDxFsmIV2lGw5-0PbMtltxn1QxO-MMlVPskeRDKVqwBJOdzxK-2bHS9ayX-vCZsa5Km8"/>
+<div class="absolute top-3 right-3 bg-surface-card/90 backdrop-blur-md px-2.5 py-1 rounded-full border border-border-subtle flex items-center gap-1.5">
+<span class="material-symbols-outlined text-brand-gold text-[14px]">verified</span>
+<span class="font-micro-tag text-micro-tag uppercase tracking-wider text-text-primary">AI Studio Isolated</span>
+</div>
+</div>
+<!-- Foreground: RAW UPLOAD (Before) masked by clip-path slider -->
+<div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none transition-all duration-75" id="before-layer" style="clip-path: polygon(0 0, 52% 0, 52% 100%, 0 100%);">
+<img alt="Raw upload of denim jacket on bed" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNCYolhpKy89h8EkyryDiTFI3CQ1EDhFMOkiCq0jMpBtDgPUuWsdmJYFNb5vqwm1FBtX8GOR9wh6SjRiFv9IFD7dN5-OHMU3bUFknrJpNymSJ74eb3HsWFDuKUxkbqrqtaUozdL76wny8GrXwkXsganFEUO3MiVUk1VTWF0aXl48NvGr9YHcvNxrv2e_40tOcFqjR4AxFRvXoUj9qDMH2CQPtJhG7XAf27m-4sFk7to9b5a6Tm5LN5uGvmWwdjymLwGd7ZmL7aUrY"/>
+<div class="absolute top-3 left-3 bg-inverse-surface/80 backdrop-blur-md px-2.5 py-1 rounded-full text-surface-canvas flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary-fixed text-[14px]">photo_camera</span>
+<span class="font-micro-tag text-micro-tag uppercase tracking-wider text-surface-canvas">Raw Upload</span>
+</div>
+</div>
+<!-- Draggable Divider Line -->
+<div class="absolute top-0 bottom-0 pointer-events-none flex items-center justify-center" id="slider-handle" style="left: 52%; transform: translateX(-50%);">
+<div class="w-0.5 h-full bg-surface-card shadow-md"></div>
+<div class="absolute w-7 h-7 rounded-full bg-surface-card border border-border-subtle shadow-lg flex items-center justify-center text-text-primary">
+<span class="material-symbols-outlined text-[16px]">compare_arrows</span>
+</div>
+</div>
+<!-- Translucent Floating AI Badges Stack -->
+<div class="absolute bottom-3 left-3 right-3 flex flex-wrap gap-1.5 pointer-events-none">
+<div class="bg-surface-glass backdrop-blur-xl border border-white/50 px-2.5 py-1 rounded-full shadow-xs flex items-center gap-1">
+<span class="text-[11px]">✨</span>
+<span class="font-micro-tag text-micro-tag text-text-primary">Background Removed</span>
+</div>
+<div class="bg-surface-glass backdrop-blur-xl border border-white/50 px-2.5 py-1 rounded-full shadow-xs flex items-center gap-1">
+<span class="text-[11px]">☀️</span>
+<span class="font-micro-tag text-micro-tag text-text-primary">Studio Relighting Active</span>
+</div>
+<div class="bg-surface-glass backdrop-blur-xl border border-white/50 px-2.5 py-1 rounded-full shadow-xs flex items-center gap-1">
+<span class="text-[11px]">🏷️</span>
+<span class="font-micro-tag text-micro-tag text-text-primary">4 Attributes Detected</span>
+</div>
+</div>
+</div>
+<p class="font-micro-tag text-micro-tag text-center text-text-muted mt-space-xs uppercase tracking-wider">Drag to inspect studio isolation fidelity</p>
+</section>
+<!-- AI Listing Form Section -->
+<section class="bg-surface-card rounded-xl p-space-md border border-border-subtle shadow-xs space-y-space-md">
+<!-- Header Banner -->
+<div class="flex items-center justify-between border-b border-border-subtle pb-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-brand-gold text-[16px]">auto_awesome</span>
+<span class="font-micro-tag text-micro-tag uppercase tracking-wider text-brand-gold font-semibold">AI AUTO-FILLED LISTING • VERIFY &amp; EDIT</span>
+</div>
+<span class="font-micro-tag text-micro-tag uppercase px-2 py-0.5 rounded-full bg-surface-muted text-text-secondary">Editable</span>
+</div>
+<!-- Garment Title Input -->
+<div class="space-y-1">
+<label class="font-micro-tag text-micro-tag uppercase tracking-wider text-text-secondary flex justify-between">
+<span>Garment Title</span>
+<span class="text-brand-bordeaux">Required</span>
+</label>
+<div class="relative">
+<input class="w-full bg-surface-canvas border border-border-subtle rounded-lg px-3 py-2 font-display-h1 text-[17px] leading-5 text-text-primary focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-all" type="text" value="Vintage Levi's Type III Denim Jacket"/>
+</div>
+</div>
+<!-- AI Detected Smart Tags Row -->
+<div class="space-y-1.5">
+<label class="font-micro-tag text-micro-tag uppercase tracking-wider text-text-secondary">Detected Attributes</label>
+<div class="flex flex-wrap gap-2">
+<!-- Brand Tag with Confidence -->
+<div class="inline-flex items-center gap-1.5 bg-surface-muted px-2.5 py-1 rounded-full border border-border-subtle">
+<span class="material-symbols-outlined text-[#2e7d32] text-[15px]">check_circle</span>
+<span class="font-subheading text-[13px] text-text-primary font-semibold">Levi's</span>
+<span class="font-micro-tag text-[9px] uppercase tracking-normal bg-[#2e7d32]/10 text-[#2e7d32] px-1.5 py-0.5 rounded font-bold">98% match</span>
+</div>
+<!-- Category -->
+<div class="inline-flex items-center gap-1 bg-surface-muted px-2.5 py-1 rounded-full border border-border-subtle font-subheading text-[13px] text-text-secondary">
+<span class="material-symbols-outlined text-[14px]">checkroom</span>
+<span>Denim Jackets</span>
+</div>
+<!-- Era -->
+<div class="inline-flex items-center gap-1 bg-surface-muted px-2.5 py-1 rounded-full border border-border-subtle font-subheading text-[13px] text-text-secondary">
+<span class="material-symbols-outlined text-[14px]">history</span>
+<span>Estimated 1990s</span>
+</div>
+</div>
+</div>
+<!-- Size Selector -->
+<div class="space-y-1.5">
+<label class="font-micro-tag text-micro-tag uppercase tracking-wider text-text-secondary">Size</label>
+<div aria-label="Select Size" class="grid grid-cols-5 gap-2" role="radiogroup">
+<button class="py-2 rounded-lg border border-border-subtle bg-surface-canvas font-subheading text-subheading text-text-secondary text-center hover:border-brand-gold transition-colors active:scale-95" type="button">XS</button>
+<button class="py-2 rounded-lg border border-border-subtle bg-surface-canvas font-subheading text-subheading text-text-secondary text-center hover:border-brand-gold transition-colors active:scale-95" type="button">S</button>
+<button class="py-2 rounded-lg border-2 border-brand-gold bg-brand-gold/10 font-subheading text-subheading font-bold text-text-primary text-center shadow-xs active:scale-95" type="button">M</button>
+<button class="py-2 rounded-lg border border-border-subtle bg-surface-canvas font-subheading text-subheading text-text-secondary text-center hover:border-brand-gold transition-colors active:scale-95" type="button">L</button>
+<button class="py-2 rounded-lg border border-border-subtle bg-surface-canvas font-subheading text-subheading text-text-secondary text-center hover:border-brand-gold transition-colors active:scale-95" type="button">XL</button>
+</div>
+</div>
+<!-- Condition Rating Pills -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between">
+<label class="font-micro-tag text-micro-tag uppercase tracking-wider text-text-secondary">Condition Grade</label>
+<span class="font-micro-tag text-micro-tag text-text-muted">AI graded from photo wear</span>
+</div>
+<div aria-label="Select Condition" class="flex flex-wrap gap-2" role="radiogroup">
+<button class="px-3 py-1.5 rounded-full border border-border-subtle bg-surface-canvas font-subheading text-[13px] text-text-secondary hover:border-brand-gold" type="button">Pristine</button>
+<button class="px-3.5 py-1.5 rounded-full border-2 border-brand-gold bg-brand-gold/15 font-subheading text-[13px] font-semibold text-text-primary shadow-xs" type="button">9/10 (Near Mint)</button>
+<button class="px-3 py-1.5 rounded-full border border-border-subtle bg-surface-canvas font-subheading text-[13px] text-text-secondary hover:border-brand-gold" type="button">8/10</button>
+<button class="px-3 py-1.5 rounded-full border border-border-subtle bg-surface-canvas font-subheading text-[13px] text-text-secondary hover:border-brand-gold" type="button">Good</button>
+<button class="px-3 py-1.5 rounded-full border border-border-subtle bg-surface-canvas font-subheading text-[13px] text-text-secondary hover:border-brand-gold" type="button">Fair</button>
+</div>
+</div>
+<!-- Price Setting & AI Valuation -->
+<div class="space-y-2 pt-space-xs">
+<label class="font-micro-tag text-micro-tag uppercase tracking-wider text-text-secondary">Listing Price</label>
+<div class="relative flex items-center">
+<div class="absolute left-3 font-price-hero text-price-hero text-text-primary pointer-events-none">$</div>
+<input class="w-full bg-surface-canvas border border-border-subtle rounded-lg pl-8 pr-4 py-2.5 font-price-hero text-price-hero text-text-primary focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold" type="text" value="120.00"/>
+<div class="absolute right-3 px-2 py-0.5 rounded bg-surface-muted font-micro-tag text-micro-tag uppercase text-text-secondary">USD</div>
+</div>
+<!-- Valuation guidance note -->
+<div class="bg-surface-muted/70 rounded-lg p-2.5 border border-border-subtle flex items-start gap-2">
+<span class="material-symbols-outlined text-brand-gold text-[18px] shrink-0 mt-0.5">analytics</span>
+<p class="font-body-text text-[13px] leading-snug text-text-secondary">
+<strong class="font-semibold text-text-primary">✨ AI Estimated Market Value: $110 – $145</strong> based on 34 recent sales of 90s vintage Levi’s jackets.
+            </p>
+</div>
+</div>
+<!-- Quick Offers Toggle -->
+<div class="flex items-center justify-between py-2 border-t border-border-subtle">
+<div class="space-y-0.5 pr-2">
+<div class="font-subheading text-subheading text-text-primary">Accept Quick DM Offers</div>
+<div class="font-body-text text-[12px] text-text-secondary">Buyers can send instant -10% or -15% offers</div>
+</div>
+<!-- Toggle button -->
+<button aria-checked="true" class="w-12 h-6 bg-brand-gold rounded-full relative p-0.5 transition-colors duration-200 cursor-pointer" role="switch" type="button">
+<span class="block w-5 h-5 bg-surface-card rounded-full shadow-md transform translate-x-6 transition-transform duration-200"></span>
+</button>
+</div>
+<!-- Editable AI Description -->
+<div class="space-y-1.5 pt-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-micro-tag text-micro-tag uppercase tracking-wider text-text-secondary">AI Generated Description</label>
+<button class="font-micro-tag text-micro-tag uppercase text-brand-gold hover:text-brand-gold-hover flex items-center gap-0.5" type="button">
+<span class="material-symbols-outlined text-[13px]">refresh</span>
+<span>Regenerate</span>
+</button>
+</div>
+<textarea class="w-full bg-surface-canvas border border-border-subtle rounded-lg p-3 font-body-text text-body-text text-text-primary focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold leading-relaxed" rows="3">Authentic vintage 1990s Levi's Type III denim jacket in natural washed indigo. Beautiful vintage fading with contrast copper stitching. Boxy relaxed fit. Cleaned and studio-verified.</textarea>
+</div>
+</section>
+<!-- Safety / Studio Guarantee Note -->
+<div class="flex items-center justify-center gap-2 text-text-muted pb-4">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span class="font-micro-tag text-micro-tag uppercase tracking-wider">Protected by 3ft Studio Authentication</span>
+</div>
+</main>
+<!-- Sticky Bottom Bar (Primary Publishing Action) -->
+<footer class="fixed bottom-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl border-t border-border-subtle py-space-sm px-margin">
+<div class="max-w-md mx-auto space-y-2">
+<!-- Main Publishing CTA -->
+<button class="w-full py-3.5 px-6 rounded-full bg-brand-gold hover:bg-brand-gold-hover text-surface-card font-subheading text-[15px] font-semibold tracking-wide flex items-center justify-center gap-2 shadow-lg shadow-brand-gold/20 active:scale-[0.98] transition-all" type="button">
+<span>Publish to Feed ↑</span>
+</button>
+<!-- Secondary Draft Link -->
+<div class="text-center pt-0.5">
+<button class="font-micro-tag text-micro-tag uppercase tracking-widest text-text-secondary hover:text-text-primary transition-colors py-1" type="button">
+            Save to Drafts
+          </button>
+</div>
+</div>
+</footer>
+</div>
+<!-- Interactive JavaScript for Split View & Modes -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const stage = document.getElementById('slider-stage');
+      const beforeLayer = document.getElementById('before-layer');
+      const sliderHandle = document.getElementById('slider-handle');
+      const splitBtn = document.getElementById('view-split-btn');
+      const afterBtn = document.getElementById('view-after-btn');
+      const beforeBtn = document.getElementById('view-before-btn');
+      
+      let isDragging = false;
+
+      function updateSplit(pct) {
+        const clamped = Math.max(0, Math.min(100, pct));
+        beforeLayer.style.clipPath = `polygon(0 0, ${clamped}% 0, ${clamped}% 100%, 0 100%)`;
+        sliderHandle.style.left = `${clamped}%`;
+        sliderHandle.style.display = 'flex';
+      }
+
+      function handleMove(e) {
+        if (!isDragging) return;
+        const rect = stage.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const offset = clientX - rect.left;
+        const pct = (offset / rect.width) * 100;
+        updateSplit(pct);
+      }
+
+      stage.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        handleMove(e);
+      });
+      window.addEventListener('mousemove', handleMove);
+      window.addEventListener('mouseup', () => { isDragging = false; });
+
+      stage.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        handleMove(e);
+      });
+      window.addEventListener('touchmove', handleMove);
+      window.addEventListener('touchend', () => { isDragging = false; });
+
+      // View mode buttons
+      function setTabActive(activeBtn) {
+        [splitBtn, afterBtn, beforeBtn].forEach(b => {
+          b.className = "px-2.5 py-1 rounded-full font-micro-tag text-micro-tag uppercase text-text-secondary hover:text-text-primary transition-all";
+        });
+        activeBtn.className = "px-2.5 py-1 rounded-full font-micro-tag text-micro-tag uppercase bg-surface-card text-text-primary shadow-xs transition-all";
+      }
+
+      splitBtn.addEventListener('click', () => {
+        setTabActive(splitBtn);
+        updateSplit(50);
+      });
+
+      afterBtn.addEventListener('click', () => {
+        setTabActive(afterBtn);
+        updateSplit(0);
+        sliderHandle.style.display = 'none';
+      });
+
+      beforeBtn.addEventListener('click', () => {
+        setTabActive(beforeBtn);
+        updateSplit(100);
+        sliderHandle.style.display = 'none';
+      });
+    });
+  </script>
+</body></html>
