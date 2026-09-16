@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { GarmentItem, SellerProfile, Offer, CategoryFilter, ActiveScreen, OnboardingState } from '../types';
+import { GarmentItem, SellerProfile, Offer, CategoryFilter, ActiveScreen, OnboardingState, FreeTrialReferral } from '../types';
 
 export const CURRENT_USER: SellerProfile = {
   id: 'usr_me',
@@ -146,13 +146,21 @@ interface AppState {
   selectedItemId: string | null;
   setSelectedItemId: (id: string | null) => void;
 
-  // Feed & Filters
+  // Search & Filters
+  searchQuery: string;
+  setSearchQuery: (query: string) => void;
+  isSearchOpen: boolean;
+  setIsSearchOpen: (open: boolean) => void;
   selectedCategory: CategoryFilter;
   setSelectedCategory: (cat: CategoryFilter) => void;
   items: GarmentItem[];
   toggleLike: (id: string) => void;
   toggleBookmark: (id: string) => void;
   addNewItem: (item: GarmentItem) => void;
+
+  // Free Trial Sharing (Invite 2 Friends)
+  freeTrial: FreeTrialReferral;
+  claimFriendInvite: (friendName: string) => void;
 
   // Offer Drawer
   isOfferDrawerOpen: boolean;
@@ -176,9 +184,42 @@ export const useAppStore = create<AppState>((set) => ({
   selectedItemId: 'item_1',
   setSelectedItemId: (id) => set({ selectedItemId: id }),
 
+  searchQuery: '',
+  setSearchQuery: (query) => set({ searchQuery: query }),
+  isSearchOpen: false,
+  setIsSearchOpen: (open) => set({ isSearchOpen: open }),
+
   selectedCategory: 'All',
   setSelectedCategory: (cat) => set({ selectedCategory: cat }),
   items: INITIAL_ITEMS,
+
+  freeTrial: {
+    code: '3FT-ADRIAN-VIP',
+    maxInvites: 2,
+    claimedInvites: 0,
+    friends: [],
+    isTrialActive: true,
+    daysRemaining: 30,
+  },
+  claimFriendInvite: (friendName) =>
+    set((state) => {
+      if (state.freeTrial.claimedInvites >= state.freeTrial.maxInvites) return state;
+      const updatedFriends = [
+        ...state.freeTrial.friends,
+        {
+          id: `friend_${Date.now()}`,
+          name: friendName,
+          claimedAt: 'Claimed today',
+        },
+      ];
+      return {
+        freeTrial: {
+          ...state.freeTrial,
+          claimedInvites: updatedFriends.length,
+          friends: updatedFriends,
+        },
+      };
+    }),
 
   toggleLike: (id) =>
     set((state) => ({

@@ -57,12 +57,22 @@ export interface Offer {
 
 export type ActiveScreen = 
   | 'FEED' 
+  | 'EXPLORE'
   | 'ITEM_DETAIL' 
   | 'AI_CAPTURE' 
   | 'PROFILE' 
   | 'SIGN_UP' 
   | 'ONBOARDING'
   | 'INBOX';
+
+export interface FreeTrialReferral {
+  code: string;
+  maxInvites: number;
+  claimedInvites: number;
+  friends: { id: string; name: string; claimedAt: string }[];
+  isTrialActive: boolean;
+  daysRemaining: number;
+}
 
 export interface OnboardingState {
   aestheticMoods: string[];
@@ -71,3 +81,4 @@ export interface OnboardingState {
   marketplaceIntent: 'BUYING' | 'SELLING' | 'BOTH';
   isCompleted: boolean;
 }
+

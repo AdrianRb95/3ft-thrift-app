@@ -22,6 +22,7 @@ import {
   LogOut,
   Sliders,
 } from 'lucide-react-native';
+import { FreeTrialShareCard } from '../components/FreeTrialShareCard';
 import { useAppStore, ELENA_PROFILE } from '../store/useAppStore';
 
 type ProfileTab = 'active' | 'sold' | 'reviews';
@@ -261,6 +262,9 @@ export const WardrobeProfileScreen: React.FC = () => {
             </TouchableOpacity>
           </View>
         </View>
+
+        {/* 30-Day VIP Pass Sharing */}
+        <FreeTrialShareCard />
 
         {/* Wardrobe Rack Tabs */}
         <View className="flex-row border-b border-[rgba(22,21,20,0.08)] mb-4">

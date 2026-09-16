@@ -7,8 +7,10 @@ import {
   SafeAreaView,
   StatusBar,
 } from 'react-native';
+import { Sparkles, UserPlus, SlidersHorizontal, Search } from 'lucide-react-native';
 import { TopAppBar } from '../components/TopAppBar';
 import { ThriftFeedCard } from '../components/ThriftFeedCard';
+import { FreeTrialShareCard } from '../components/FreeTrialShareCard';
 import { useAppStore } from '../store/useAppStore';
 import { CategoryFilter } from '../types';
 
@@ -29,22 +31,61 @@ export const ThriftFeedScreen: React.FC = () => {
     setSelectedItemId,
     setOfferDrawerOpen,
     setActiveScreen,
+    searchQuery,
+    setSearchQuery,
+    signOut,
+    resetOnboarding,
   } = useAppStore();
 
-  const filteredItems =
-    selectedCategory === 'All'
-      ? items
-      : items.filter((item) => item.category === selectedCategory);
+  const filteredItems = items.filter((item) => {
+    const matchesCategory =
+      selectedCategory === 'All' || item.category === selectedCategory;
+    if (!matchesCategory) return false;
+    if (!searchQuery.trim()) return true;
+    const q = searchQuery.toLowerCase();
+    return (
+      item.title.toLowerCase().includes(q) ||
+      item.brand.toLowerCase().includes(q) ||
+      (item.subhead && item.subhead.toLowerCase().includes(q)) ||
+      (item.era && item.era.toLowerCase().includes(q)) ||
+      item.seller.handle.toLowerCase().includes(q)
+    );
+  });
 
   return (
     <SafeAreaView className="flex-1 bg-[#FBF9F5]">
       <StatusBar barStyle="dark-content" backgroundColor="#FBF9F5" />
-      
-      {/* Editorial Header */}
-      <TopAppBar
-        onSearchPress={() => {}}
-        onMailPress={() => setActiveScreen('INBOX')}
-      />
+
+      {/* Editorial Header with working search */}
+      <TopAppBar onMailPress={() => setActiveScreen('INBOX')} />
+
+      {/* Quick Test Bar for Sign Up & Onboarding */}
+      <View className="bg-[#F4EFEA]/80 border-b border-[rgba(22,21,20,0.06)] px-5 py-1.5 flex-row items-center justify-between">
+        <View className="flex-row items-center gap-1">
+          <Sparkles size={11} color="#A78B71" />
+          <Text className="text-[10px] font-bold text-[#6A6661] uppercase tracking-wider">
+            Quick Test:
+          </Text>
+        </View>
+        <View className="flex-row items-center gap-2">
+          <TouchableOpacity
+            activeOpacity={0.7}
+            onPress={() => signOut()}
+            className="px-2.5 py-0.5 rounded-full bg-white border border-[rgba(22,21,20,0.1)] flex-row items-center gap-1"
+          >
+            <UserPlus size={10} color="#732D30" />
+            <Text className="text-[10px] font-bold text-[#732D30]">Sign Up</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            activeOpacity={0.7}
+            onPress={() => resetOnboarding()}
+            className="px-2.5 py-0.5 rounded-full bg-white border border-[rgba(22,21,20,0.1)] flex-row items-center gap-1"
+          >
+            <SlidersHorizontal size={10} color="#A78B71" />
+            <Text className="text-[10px] font-bold text-[#A78B71]">Onboarding</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
 
       {/* Category Filter Horizontal Pills */}
       <View className="py-2.5 px-5 border-b border-[rgba(22,21,20,0.06)] bg-[#FBF9F5]">
@@ -85,17 +126,39 @@ export const ThriftFeedScreen: React.FC = () => {
         contentContainerStyle={{ paddingBottom: 110 }}
         showsVerticalScrollIndicator={false}
       >
+        {/* Search status indicator */}
+        {searchQuery.trim().length > 0 && (
+          <View className="flex-row items-center justify-between pb-3">
+            <Text className="text-xs text-[#6A6661]">
+              Results for "<Text className="font-bold text-[#161514]">{searchQuery}</Text>"
+            </Text>
+            <TouchableOpacity onPress={() => setSearchQuery('')}>
+              <Text className="text-xs font-semibold text-[#732D30]">Clear</Text>
+            </TouchableOpacity>
+          </View>
+        )}
+
+        {/* Free Trial Sharing Card (2 Friends) */}
+        {!searchQuery && <FreeTrialShareCard />}
+
         {filteredItems.length === 0 ? (
           <View className="items-center justify-center py-16">
-            <Text className="text-sm font-medium text-[#6A6661]">
-              No archive pieces found in {selectedCategory}.
+            <Search size={32} color="#9B968F" />
+            <Text className="text-sm font-semibold text-[#161514] mt-2">
+              No archive pieces found
+            </Text>
+            <Text className="text-xs text-[#6A6661] mt-1 text-center">
+              Try searching for "Schott", "Levi's", "Cardigan", or clear filters.
             </Text>
             <TouchableOpacity
-              onPress={() => setSelectedCategory('All')}
-              className="mt-3 px-4 py-1.5 rounded-full bg-[#A78B71]"
+              onPress={() => {
+                setSearchQuery('');
+                setSelectedCategory('All');
+              }}
+              className="mt-4 px-4 py-2 rounded-full bg-[#A78B71]"
             >
               <Text className="text-xs font-semibold text-white">
-                View All Pieces
+                Reset All Filters
               </Text>
             </TouchableOpacity>
           </View>

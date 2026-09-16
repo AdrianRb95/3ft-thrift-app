@@ -10,7 +10,7 @@ export const FloatingNavbar: React.FC = () => {
 
   const navItems: { label: string; screen: ActiveScreen; icon: React.ElementType }[] = [
     { label: 'Home', screen: 'FEED', icon: Home },
-    { label: 'Explore', screen: 'FEED', icon: Compass },
+    { label: 'Explore', screen: 'EXPLORE', icon: Compass },
     { label: 'Sell', screen: 'AI_CAPTURE', icon: Camera },
     { label: 'Inbox', screen: 'INBOX', icon: MessageSquare },
     { label: 'Profile', screen: 'PROFILE', icon: User },

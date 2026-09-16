@@ -8,6 +8,7 @@ import { WardrobeProfileScreen } from '../screens/WardrobeProfileScreen';
 import { SignUpScreen } from '../screens/SignUpScreen';
 import { OnboardingScreen } from '../screens/OnboardingScreen';
 import { InboxOffersScreen } from '../screens/InboxOffersScreen';
+import { ExploreScreen } from '../screens/ExploreScreen';
 import { FloatingNavbar } from '../components/FloatingNavbar';
 
 export const AppNavigator: React.FC = () => {
@@ -25,6 +26,8 @@ export const AppNavigator: React.FC = () => {
     switch (activeScreen) {
       case 'FEED':
         return <ThriftFeedScreen />;
+      case 'EXPLORE':
+        return <ExploreScreen />;
       case 'ITEM_DETAIL':
         return <ItemDetailScreen />;
       case 'AI_CAPTURE':
@@ -41,7 +44,7 @@ export const AppNavigator: React.FC = () => {
   const showNavbar =
     isAuthenticated &&
     onboarding.isCompleted &&
-    ['FEED', 'PROFILE', 'INBOX'].includes(activeScreen);
+    ['FEED', 'EXPLORE', 'PROFILE', 'INBOX'].includes(activeScreen);
 
   return (
     <View className="flex-1 bg-[#FBF9F5] relative">
