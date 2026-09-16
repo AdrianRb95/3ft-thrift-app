@@ -166,6 +166,8 @@ interface AppState {
   onboarding: OnboardingState;
   setOnboardingPreferences: (prefs: Partial<OnboardingState>) => void;
   completeOnboarding: () => void;
+  signOut: () => void;
+  resetOnboarding: () => void;
 }
 
 export const useAppStore = create<AppState>((set) => ({
@@ -239,5 +241,22 @@ export const useAppStore = create<AppState>((set) => ({
     set((state) => ({
       onboarding: { ...state.onboarding, isCompleted: true },
       activeScreen: 'FEED',
+    })),
+  signOut: () =>
+    set({
+      isAuthenticated: false,
+      onboarding: {
+        aestheticMoods: ['90s Vintage Archive', 'Minimalist Luxury'],
+        topSize: 'M',
+        bottomSize: '32',
+        marketplaceIntent: 'BOTH',
+        isCompleted: false,
+      },
+      activeScreen: 'SIGN_UP',
+    }),
+  resetOnboarding: () =>
+    set((state) => ({
+      onboarding: { ...state.onboarding, isCompleted: false },
+      activeScreen: 'ONBOARDING',
     })),
 }));

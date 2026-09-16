@@ -14,11 +14,11 @@ export const AppNavigator: React.FC = () => {
   const { activeScreen, isAuthenticated, onboarding } = useAppStore();
 
   const renderScreen = () => {
-    // Auth gates
-    if (!isAuthenticated) {
+    // Auth gates & explicit screen selection
+    if (activeScreen === 'SIGN_UP' || !isAuthenticated) {
       return <SignUpScreen />;
     }
-    if (!onboarding.isCompleted) {
+    if (activeScreen === 'ONBOARDING' || !onboarding.isCompleted) {
       return <OnboardingScreen />;
     }
 
@@ -31,10 +31,6 @@ export const AppNavigator: React.FC = () => {
         return <AIStudioCaptureScreen />;
       case 'PROFILE':
         return <WardrobeProfileScreen />;
-      case 'SIGN_UP':
-        return <SignUpScreen />;
-      case 'ONBOARDING':
-        return <OnboardingScreen />;
       case 'INBOX':
         return <InboxOffersScreen />;
       default:

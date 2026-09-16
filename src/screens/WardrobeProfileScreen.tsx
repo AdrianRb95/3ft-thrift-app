@@ -19,13 +19,15 @@ import {
   Sparkles,
   MessageSquare,
   UserPlus,
+  LogOut,
+  Sliders,
 } from 'lucide-react-native';
 import { useAppStore, ELENA_PROFILE } from '../store/useAppStore';
 
 type ProfileTab = 'active' | 'sold' | 'reviews';
 
 export const WardrobeProfileScreen: React.FC = () => {
-  const { items, setSelectedItemId, setActiveScreen } = useAppStore();
+  const { items, setSelectedItemId, setActiveScreen, signOut, resetOnboarding } = useAppStore();
   const [activeTab, setActiveTab] = useState<ProfileTab>('active');
   const [isFollowing, setIsFollowing] = useState<boolean>(false);
 
@@ -230,6 +232,31 @@ export const WardrobeProfileScreen: React.FC = () => {
                 }`}
               >
                 {isFollowing ? 'Following' : 'Follow (+)'}
+              </Text>
+            </TouchableOpacity>
+          </View>
+
+          {/* Quick Flow Switches for Testing Onboarding & Auth */}
+          <View className="flex-row gap-2 w-full mt-2.5">
+            <TouchableOpacity
+              activeOpacity={0.7}
+              onPress={() => resetOnboarding()}
+              className="flex-1 py-2 rounded-xl bg-[#F4EFEA] border border-[rgba(22,21,20,0.08)] flex-row items-center justify-center gap-1.5"
+            >
+              <Sliders size={13} color="#6A6661" />
+              <Text className="text-[11px] font-semibold text-[#6A6661]">
+                Style Onboarding
+              </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              activeOpacity={0.7}
+              onPress={() => signOut()}
+              className="flex-1 py-2 rounded-xl bg-[#F4EFEA] border border-[rgba(22,21,20,0.08)] flex-row items-center justify-center gap-1.5"
+            >
+              <LogOut size={13} color="#732D30" />
+              <Text className="text-[11px] font-semibold text-[#732D30]">
+                Sign Out / Sign Up
               </Text>
             </TouchableOpacity>
           </View>
