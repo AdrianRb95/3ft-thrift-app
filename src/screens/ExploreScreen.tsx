@@ -49,7 +49,7 @@ const CURATOR_SPOTLIGHTS = [
 ];
 
 export const ExploreScreen: React.FC = () => {
-  const { items, setSelectedItemId, setActiveScreen, setOfferDrawerOpen } = useAppStore();
+  const { items, setSelectedItemId, setActiveScreen, setOfferDrawerOpen, formatPrice } = useAppStore();
   const [search, setSearch] = useState<string>('');
   const [selectedTag, setSelectedTag] = useState<string>('🔥 90s Leather');
 
@@ -248,11 +248,18 @@ export const ExploreScreen: React.FC = () => {
                       style={{ fontFamily: 'serif' }}
                       className="text-sm font-bold text-[#161514]"
                     >
-                      ${item.price.toFixed(2)}
+                      {formatPrice(item.price)}
                     </Text>
-                    <Text className="text-[10px] font-bold text-[#A78B71]">
-                      Offer →
-                    </Text>
+                    {item.shipsWithCorreos ? (
+                      <View className="flex-row items-center gap-0.5 px-1 py-0.2 rounded bg-[#ffcc00]/20">
+                        <Text className="text-[9px]">📦</Text>
+                        <Text className="text-[8px] font-bold text-[#003366]">Correos</Text>
+                      </View>
+                    ) : (
+                      <Text className="text-[10px] font-bold text-[#A78B71]">
+                        Offer →
+                      </Text>
+                    )}
                   </View>
                 </View>
               </TouchableOpacity>

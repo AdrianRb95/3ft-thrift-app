@@ -21,6 +21,7 @@ import {
 } from 'lucide-react-native';
 import { useAppStore } from '../store/useAppStore';
 import { OfferDrawer } from '../components/OfferDrawer';
+import { CorreosDeliveryCard } from '../components/CorreosDeliveryCard';
 
 export const ItemDetailScreen: React.FC = () => {
   const {
@@ -30,6 +31,7 @@ export const ItemDetailScreen: React.FC = () => {
     toggleBookmark,
     isOfferDrawerOpen,
     setOfferDrawerOpen,
+    formatPrice,
   } = useAppStore();
 
   const currentItem =
@@ -170,12 +172,12 @@ export const ItemDetailScreen: React.FC = () => {
               style={{ fontFamily: 'serif' }}
               className="text-2xl font-bold text-[#732D30]"
             >
-              ${currentItem.price.toFixed(2)}
+              {formatPrice(currentItem.price)}
             </Text>
             {currentItem.originalPrice && (
               <>
                 <Text className="text-sm text-[#9B968F] line-through">
-                  ${currentItem.originalPrice.toFixed(2)}
+                  {formatPrice(currentItem.originalPrice)}
                 </Text>
                 <View className="px-2 py-0.5 rounded-full bg-[#ffdad9]">
                   <Text className="text-[10px] font-bold text-[#7a3235]">
@@ -252,8 +254,15 @@ export const ItemDetailScreen: React.FC = () => {
             </View>
           )}
 
+          {/* Correos de Costa Rica Delivery & Province Estimator */}
+          <CorreosDeliveryCard
+            originProvince="San José"
+            shippingFrom={currentItem.shippingFrom || 'San José, Costa Rica'}
+            trackingNumber={currentItem.correosShipping?.trackingNumber || 'CR928471203CR'}
+          />
+
           {/* Seller Profile Snapshot Card */}
-          <View className="p-3.5 rounded-xl bg-white border border-[rgba(22,21,20,0.08)] flex-row items-center justify-between shadow-xs mt-2">
+          <View className="p-3.5 rounded-xl bg-white border border-[rgba(22,21,20,0.08)] flex-row items-center justify-between shadow-xs mt-1">
             <TouchableOpacity
               activeOpacity={0.8}
               onPress={() => setActiveScreen('PROFILE')}
@@ -323,7 +332,7 @@ export const ItemDetailScreen: React.FC = () => {
           className="flex-1 py-3.5 rounded-full bg-[#161514] active:bg-black items-center justify-center shadow-sm"
         >
           <Text className="text-sm font-bold text-white tracking-wide">
-            Buy Now (${currentItem.price.toFixed(2)})
+            Buy Now ({formatPrice(currentItem.price)})
           </Text>
         </TouchableOpacity>
       </View>

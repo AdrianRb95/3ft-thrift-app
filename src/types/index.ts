@@ -1,5 +1,29 @@
 export type CategoryFilter = 'All' | 'Jackets' | 'Denim' | 'Knitwear' | 'Vintage' | 'Streetwear';
 
+export type Currency = 'USD' | 'CRC';
+export type Language = 'en' | 'es';
+
+export type CostaRicaProvince =
+  | 'San José'
+  | 'Alajuela'
+  | 'Cartago'
+  | 'Heredia'
+  | 'Guanacaste'
+  | 'Puntarenas'
+  | 'Limón';
+
+export interface CorreosShippingDetails {
+  originProvince: CostaRicaProvince;
+  destinationProvince: CostaRicaProvince;
+  carrier: 'Correos de Costa Rica';
+  service: 'Pymexpress GAM' | 'Pymexpress Nacional';
+  rateCRC: number;
+  rateUSD: number;
+  estimatedDelivery: string;
+  trackingNumber?: string;
+  trackingStatus?: string;
+}
+
 export interface SellerProfile {
   id: string;
   handle: string;
@@ -35,6 +59,9 @@ export interface GarmentItem {
   isLiked?: boolean;
   isBookmarked?: boolean;
   description: string;
+  shippingFrom?: string;
+  shipsWithCorreos?: boolean;
+  correosShipping?: CorreosShippingDetails;
   measurements?: {
     chest?: string;
     length?: string;

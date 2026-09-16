@@ -15,7 +15,7 @@ export const ThriftFeedCard: React.FC<ThriftFeedCardProps> = ({
   onPress,
   onOfferPress,
 }) => {
-  const { toggleLike, toggleBookmark, setSelectedItemId, setActiveScreen } = useAppStore();
+  const { toggleLike, toggleBookmark, setSelectedItemId, setActiveScreen, formatPrice } = useAppStore();
 
   return (
     <View className="bg-white rounded-2xl overflow-hidden border border-[rgba(22,21,20,0.08)] mb-5 shadow-sm">
@@ -88,18 +88,29 @@ export const ThriftFeedCard: React.FC<ThriftFeedCardProps> = ({
           </View>
         </View>
 
-        {/* Pricing Row */}
-        <View className="flex-row items-baseline gap-2">
-          <Text 
-            style={{ fontFamily: 'serif' }}
-            className="text-xl font-bold text-[#161514]"
-          >
-            ${item.price.toFixed(2)}
-          </Text>
-          {item.originalPrice && (
-            <Text className="text-xs text-[#9B968F] line-through">
-              ${item.originalPrice.toFixed(2)}
+        {/* Pricing Row & Correos Delivery Badge */}
+        <View className="flex-row items-center justify-between">
+          <View className="flex-row items-baseline gap-2">
+            <Text 
+              style={{ fontFamily: 'serif' }}
+              className="text-xl font-bold text-[#161514]"
+            >
+              {formatPrice(item.price)}
             </Text>
+            {item.originalPrice && (
+              <Text className="text-xs text-[#9B968F] line-through">
+                {formatPrice(item.originalPrice)}
+              </Text>
+            )}
+          </View>
+
+          {item.shipsWithCorreos && (
+            <View className="flex-row items-center gap-1 px-2 py-0.5 rounded-full bg-[#ffcc00]/15 border border-[#ffcc00]/50">
+              <Text className="text-[10px]">📦</Text>
+              <Text className="text-[9px] font-bold text-[#003366]">
+                Correos de CR
+              </Text>
+            </View>
           )}
         </View>
 

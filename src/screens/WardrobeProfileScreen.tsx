@@ -23,14 +23,26 @@ import {
   Sliders,
 } from 'lucide-react-native';
 import { FreeTrialShareCard } from '../components/FreeTrialShareCard';
+import { ProfileSettingsModal } from '../components/ProfileSettingsModal';
 import { useAppStore, ELENA_PROFILE } from '../store/useAppStore';
 
 type ProfileTab = 'active' | 'sold' | 'reviews';
 
 export const WardrobeProfileScreen: React.FC = () => {
-  const { items, setSelectedItemId, setActiveScreen, signOut, resetOnboarding } = useAppStore();
+  const {
+    items,
+    setSelectedItemId,
+    setActiveScreen,
+    signOut,
+    resetOnboarding,
+    currency,
+    language,
+    formatPrice,
+    userProvince,
+  } = useAppStore();
   const [activeTab, setActiveTab] = useState<ProfileTab>('active');
   const [isFollowing, setIsFollowing] = useState<boolean>(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
 
   const profile = ELENA_PROFILE;
 
@@ -74,14 +86,25 @@ export const WardrobeProfileScreen: React.FC = () => {
           <View className="w-1.5 h-1.5 rounded-full bg-[#A78B71]" />
         </View>
 
-        <TouchableOpacity
-          accessibilityLabel="Share"
-          onPress={handleShare}
-          activeOpacity={0.7}
-          className="w-9 h-9 rounded-full bg-[#F4EFEA] items-center justify-center border border-[rgba(22,21,20,0.08)]"
-        >
-          <Share2 size={18} color="#161514" />
-        </TouchableOpacity>
+        <View className="flex-row items-center gap-2">
+          <TouchableOpacity
+            accessibilityLabel="Settings"
+            onPress={() => setIsSettingsOpen(true)}
+            activeOpacity={0.7}
+            className="w-9 h-9 rounded-full bg-[#F4EFEA] items-center justify-center border border-[rgba(22,21,20,0.08)]"
+          >
+            <Settings size={17} color="#161514" />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            accessibilityLabel="Share"
+            onPress={handleShare}
+            activeOpacity={0.7}
+            className="w-9 h-9 rounded-full bg-[#F4EFEA] items-center justify-center border border-[rgba(22,21,20,0.08)]"
+          >
+            <Share2 size={17} color="#161514" />
+          </TouchableOpacity>
+        </View>
       </View>
 
       <ScrollView
@@ -143,6 +166,25 @@ export const WardrobeProfileScreen: React.FC = () => {
               </Text>
             </View>
           </View>
+
+          {/* Currency, Language & Delivery Location Quick Pill */}
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => setIsSettingsOpen(true)}
+            className="flex-row items-center gap-2 mt-3 px-3.5 py-1.5 rounded-full bg-white border border-[#A78B71]/40 shadow-xs"
+          >
+            <Text className="text-xs font-bold text-[#732D30]">
+              {currency === 'CRC' ? '₡ CRC (Colones)' : '$ USD (Dólares)'}
+            </Text>
+            <Text className="text-xs text-[#9B968F]">•</Text>
+            <Text className="text-xs font-semibold text-[#161514]">
+              {language === 'es' ? 'Español' : 'English'}
+            </Text>
+            <Text className="text-xs text-[#9B968F]">•</Text>
+            <Text className="text-xs text-[#A78B71] font-medium">
+              📍 {userProvince} (CR)
+            </Text>
+          </TouchableOpacity>
 
           {/* Seller Metrics Panel */}
           <View className="w-full mt-4 bg-white border border-[rgba(22,21,20,0.08)] rounded-2xl py-3 px-2 flex-row items-center justify-around shadow-xs">
@@ -359,10 +401,10 @@ export const WardrobeProfileScreen: React.FC = () => {
                     style={{ fontFamily: 'serif' }}
                     className="text-sm font-bold text-[#161514]"
                   >
-                    ${item.price.toFixed(2)}
+                    {formatPrice(item.price)}
                   </Text>
                   <Text className="text-[10px] text-[#A78B71] font-semibold">
-                    Make offer
+                    Offer →
                   </Text>
                 </View>
               </View>
@@ -370,6 +412,12 @@ export const WardrobeProfileScreen: React.FC = () => {
           ))}
         </View>
       </ScrollView>
+
+      {/* Profile Settings Modal (Currency, Language, Costa Rica Province) */}
+      <ProfileSettingsModal
+        visible={isSettingsOpen}
+        onClose={() => setIsSettingsOpen(false)}
+      />
     </SafeAreaView>
   );
 };

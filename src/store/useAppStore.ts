@@ -1,19 +1,30 @@
 import { create } from 'zustand';
-import { GarmentItem, SellerProfile, Offer, CategoryFilter, ActiveScreen, OnboardingState, FreeTrialReferral } from '../types';
+import {
+  GarmentItem,
+  SellerProfile,
+  Offer,
+  CategoryFilter,
+  ActiveScreen,
+  OnboardingState,
+  FreeTrialReferral,
+  Currency,
+  Language,
+  CostaRicaProvince,
+} from '../types';
 
 export const CURRENT_USER: SellerProfile = {
   id: 'usr_me',
   handle: '@adrian_archive',
   displayName: 'Adrian Ramirez',
   avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80',
-  location: 'Austin, TX',
+  location: 'San José, Costa Rica',
   isVerified: true,
-  salesCount: 12,
+  salesCount: 14,
   rating: 4.95,
-  reviewCount: 10,
-  followersCount: 840,
+  reviewCount: 12,
+  followersCount: 1200,
   shipSpeed: '99%',
-  bio: 'Curator of 90s vintage denim, military archive pieces, and leather jackets.',
+  bio: 'Curador de prendas vintage 80s-90s, denim de archivo y chaquetas de cuero. Envíos a todo Costa Rica con Correos de CR.',
 };
 
 export const ELENA_PROFILE: SellerProfile = {
@@ -21,14 +32,14 @@ export const ELENA_PROFILE: SellerProfile = {
   handle: '@elena_archive',
   displayName: 'Elena Archive',
   avatarUrl: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80',
-  location: 'London, UK',
+  location: 'San José / London',
   isVerified: true,
   salesCount: 68,
   rating: 4.9,
   reviewCount: 54,
   followersCount: 2400,
   shipSpeed: '98%',
-  bio: 'Curating 80s-90s leather, archival denim, and vintage luxury pieces. Direct dispatch from East London.',
+  bio: 'Curating 80s-90s leather, archival denim, and vintage luxury pieces. Envíos nacionales e internacionales vía Correos de Costa Rica.',
 };
 
 export const INITIAL_ITEMS: GarmentItem[] = [
@@ -52,6 +63,19 @@ export const INITIAL_ITEMS: GarmentItem[] = [
     isLiked: false,
     isBookmarked: false,
     description: 'Authentic 1980s Schott NYC Perfecto steerhide leather biker jacket. Heavyweight grain with stunning naturally worn patina across collar and elbows. All Talon zippers operate smoothly with original leather pull tabs.',
+    shippingFrom: 'San José, Costa Rica (Curridabat)',
+    shipsWithCorreos: true,
+    correosShipping: {
+      originProvince: 'San José',
+      destinationProvince: 'San José',
+      carrier: 'Correos de Costa Rica',
+      service: 'Pymexpress GAM',
+      rateCRC: 2200,
+      rateUSD: 4.25,
+      estimatedDelivery: '24-48 horas',
+      trackingNumber: 'CR928471203CR',
+      trackingStatus: 'En Sucursal Zapote - Listo para entrega',
+    },
     measurements: {
       chest: '22.5"',
       length: '26.0"',
@@ -168,6 +192,15 @@ interface AppState {
   offers: Offer[];
   submitOffer: (offer: Omit<Offer, 'id' | 'createdAt' | 'status'>) => void;
 
+  // Currency, Language & Costa Rica Delivery
+  currency: Currency;
+  setCurrency: (c: Currency) => void;
+  language: Language;
+  setLanguage: (l: Language) => void;
+  userProvince: CostaRicaProvince;
+  setUserProvince: (p: CostaRicaProvince) => void;
+  formatPrice: (amountUSD: number) => string;
+
   // Onboarding & Auth
   isAuthenticated: boolean;
   setAuthenticated: (auth: boolean) => void;
@@ -178,7 +211,23 @@ interface AppState {
   resetOnboarding: () => void;
 }
 
-export const useAppStore = create<AppState>((set) => ({
+export const useAppStore = create<AppState>((set, get) => ({
+  // Currency & Localization defaults
+  currency: 'USD',
+  setCurrency: (c) => set({ currency: c }),
+  language: 'es',
+  setLanguage: (l) => set({ language: l }),
+  userProvince: 'San José',
+  setUserProvince: (p) => set({ userProvince: p }),
+  formatPrice: (amountUSD) => {
+    const curr = get().currency;
+    if (curr === 'CRC') {
+      const colones = Math.round(amountUSD * 515);
+      return `₡${colones.toLocaleString('es-CR')}`;
+    }
+    return `$${amountUSD.toFixed(2)}`;
+  },
+
   activeScreen: 'FEED',
   setActiveScreen: (screen) => set({ activeScreen: screen }),
   selectedItemId: 'item_1',
