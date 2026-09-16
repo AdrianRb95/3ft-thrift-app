@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>3ft — Item Detail &amp; Make an Offer</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Playfair Display & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary": "#6f5740",
+            "error-container": "#ffdad6",
+            "on-primary-fixed": "#291806",
+            "on-tertiary-fixed": "#091e27",
+            "surface": "#fbf9f5",
+            "on-tertiary": "#ffffff",
+            "secondary-fixed-dim": "#ffb3b3",
+            "secondary": "#944749",
+            "surface-container-high": "#eae8e4",
+            "on-error": "#ffffff",
+            "tertiary-container": "#647782",
+            "on-secondary-fixed-variant": "#773033",
+            "on-primary-fixed-variant": "#58422d",
+            "text-primary": "#161514",
+            "brand-gold-hover": "#8F7359",
+            "surface-canvas": "#FBF9F5",
+            "primary-container": "#8a7057",
+            "on-secondary": "#ffffff",
+            "outline": "#80756c",
+            "surface-muted": "#F4EFEA",
+            "secondary-container": "#ff9e9f",
+            "inverse-primary": "#e0c1a4",
+            "error": "#ba1a1a",
+            "surface-container-highest": "#e4e2de",
+            "outline-variant": "#d2c4ba",
+            "surface-container": "#efeeea",
+            "on-surface": "#1b1c1a",
+            "inverse-surface": "#30312e",
+            "on-primary": "#ffffff",
+            "primary-fixed-dim": "#e0c1a4",
+            "brand-bordeaux": "#732D30",
+            "tertiary": "#4b5f69",
+            "surface-tint": "#725a43",
+            "secondary-fixed": "#ffdad9",
+            "on-tertiary-fixed-variant": "#364953",
+            "on-error-container": "#93000a",
+            "on-secondary-fixed": "#3d050b",
+            "on-surface-variant": "#4e453d",
+            "primary-fixed": "#feddbf",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#b5cad5",
+            "on-primary-container": "#fffbff",
+            "surface-dim": "#dbdad6",
+            "surface-variant": "#e4e2de",
+            "text-muted": "#9B968F",
+            "border-subtle": "rgba(22, 21, 20, 0.08)",
+            "inverse-on-surface": "#f2f0ed",
+            "text-secondary": "#6A6661",
+            "on-secondary-container": "#7a3235",
+            "surface-card": "#FFFFFF",
+            "brand-gold": "#A78B71",
+            "tertiary-fixed": "#d1e6f2",
+            "on-tertiary-container": "#fbfdff",
+            "background": "#fbf9f5",
+            "surface-glass": "rgba(255,255,255,0.75)",
+            "surface-container-low": "#f5f3ef",
+            "on-background": "#1b1c1a",
+            "surface-bright": "#fbf9f5"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-xl": "2.5rem",
+            "margin": "1.25rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "price-hero": [
+              "Playfair Display"
+            ],
+            "micro-tag": [
+              "Inter"
+            ],
+            "display-h1": [
+              "Playfair Display"
+            ],
+            "brand-logo": [
+              "Playfair Display"
+            ],
+            "subheading": [
+              "Inter"
+            ],
+            "body-text": [
+              "Inter"
+            ]
+          },
+          "fontSize": {
+            "price-hero": [
+              "20px",
+              {
+                "lineHeight": "24px",
+                "letterSpacing": "0",
+                "fontWeight": "700"
+              }
+            ],
+            "micro-tag": [
+              "10px",
+              {
+                "lineHeight": "14px",
+                "letterSpacing": "0.18em",
+                "fontWeight": "600"
+              }
+            ],
+            "display-h1": [
+              "24px",
+              {
+                "lineHeight": "28px",
+                "letterSpacing": "-0.01em",
+                "fontWeight": "600"
+              }
+            ],
+            "brand-logo": [
+              "28px",
+              {
+                "lineHeight": "32px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "700"
+              }
+            ],
+            "subheading": [
+              "15px",
+              {
+                "lineHeight": "20px",
+                "letterSpacing": "0",
+                "fontWeight": "500"
+              }
+            ],
+            "body-text": [
+              "14px",
+              {
+                "lineHeight": "20px",
+                "letterSpacing": "0",
+                "fontWeight": "400"
+              }
+            ]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-surface-canvas text-text-primary antialiased selection:bg-brand-gold/20 selection:text-brand-bordeaux min-h-screen flex justify-center items-start">
+<!-- Mobile Canvas Device Frame (Centered & Constrained) -->
+<main class="w-full max-w-md min-h-screen bg-surface relative flex flex-col shadow-2xl overflow-hidden pb-12">
+<!-- Top Floating Header Actions -->
+<header class="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-margin pt-4 pb-2">
+<!-- Back Floating Pill -->
+<button class="w-10 h-10 rounded-full bg-surface-glass backdrop-blur-xl border border-border-subtle flex items-center justify-center text-text-primary hover:text-brand-bordeaux active:scale-90 transition-all shadow-sm">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- Center Brand Watermark -->
+<div class="px-3 py-1 rounded-full bg-surface-glass backdrop-blur-xl border border-border-subtle">
+<span class="font-brand-logo text-subheading italic font-bold tracking-tight text-brand-bordeaux">3ft</span>
+</div>
+<!-- Right Action Group -->
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 rounded-full bg-surface-glass backdrop-blur-xl border border-border-subtle flex items-center justify-center text-text-primary hover:text-brand-bordeaux active:scale-90 transition-all shadow-sm">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-glass backdrop-blur-xl border border-border-subtle flex items-center justify-center text-brand-bordeaux active:scale-90 transition-all shadow-sm">
+<span class="material-symbols-outlined material-symbols-fill" data-icon="bookmark" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+</header>
+<!-- Hero Product Studio Presentation -->
+<section class="relative w-full bg-surface pt-16 pb-6 px-margin flex flex-col items-center">
+<!-- AI Studio Isolation Badge -->
+<div class="self-start mb-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-muted border border-brand-gold/40 shadow-xs">
+<span class="text-micro-tag font-micro-tag text-primary">✨ AI STUDIO ISOLATED</span>
+</div>
+<!-- Jacket Studio Card Frame with Ambient Diffused Shadow -->
+<div class="relative w-full aspect-[4/5] rounded-xl flex items-center justify-center overflow-hidden bg-surface-muted/40 border border-border-subtle p-4 group">
+<!-- Diffused studio contact shadow element -->
+<div class="absolute bottom-6 w-3/4 h-8 bg-text-primary/10 rounded-full filter blur-xl -z-0"></div>
+<!-- Isolated Garment Cutout -->
+<img alt="Vintage Schott NYC Leather Biker Jacket" class="relative z-10 w-full h-full object-contain filter drop-shadow-[0_16px_28px_rgba(40,30,20,0.14)]" src="https://lh3.googleusercontent.com/aida/AEtjO1V5CSDzolR1Fsa4fGucsCv0mRnZfGpg0AgbmsGfhLFuTk3XOJ8SMB92Uvg6BeTySwvopWaTdHEzY7Q4bJcmoIsPcx8Gw4874ssXnH1KPcJs7N9ipSJaQInUTgoettl8wl-VbubQ_jpSLz1fjPMLixVnW9VH6fQUkCrMmtohbt1w3Gdai8yeKGlYeVin1dORXjYGuwZa2Um2VGoa_wmA454fUqPEd_DnrtFkqcGcQIlHs3j2IfuzGayr24E"/>
+<!-- Slide Indicators -->
+<div class="absolute bottom-3 flex items-center gap-1.5 z-10">
+<div class="w-5 h-1 rounded-full bg-primary"></div>
+<div class="w-1.5 h-1 rounded-full bg-outline-variant"></div>
+<div class="w-1.5 h-1 rounded-full bg-outline-variant"></div>
+<div class="w-1.5 h-1 rounded-full bg-outline-variant"></div>
+</div>
+</div>
+</section>
+<!-- Item Details Block (Background layer beneath modal) -->
+<section class="px-margin flex flex-col gap-3 pb-80">
+<!-- Category Micro Tag -->
+<div class="flex items-center gap-2">
+<span class="text-micro-tag font-micro-tag text-text-muted uppercase">1980S ARCHIVE • STEERHIDE LEATHER</span>
+</div>
+<!-- Title & Price Line -->
+<div class="flex items-start justify-between gap-2">
+<h1 class="font-display-h1 text-display-h1 text-text-primary leading-tight">
+          Vintage Schott NYC Leather Biker Jacket
+        </h1>
+</div>
+<!-- Price Hero Row -->
+<div class="flex items-baseline gap-3">
+<span class="font-price-hero text-price-hero text-brand-bordeaux">$240.00</span>
+<span class="font-subheading text-subheading text-text-muted line-through">$380.00</span>
+<span class="text-micro-tag font-micro-tag px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-semibold">-36% OFF</span>
+</div>
+<!-- Spec Chips Row -->
+<div class="flex flex-wrap items-center gap-2 pt-1">
+<div class="px-2.5 py-1 rounded-full bg-surface-muted border border-border-subtle text-subheading font-subheading text-text-primary">
+          Size L
+        </div>
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-muted border border-border-subtle text-subheading font-subheading text-text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
+<span>Condition 9/10 (Near Mint)</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-card border border-brand-gold/30 text-micro-tag font-micro-tag text-primary">
+<span class="material-symbols-outlined text-brand-gold text-[14px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>AUTHENTICITY VERIFIED</span>
+</div>
+</div>
+<!-- Seller Profile Snapshot Card -->
+<div class="mt-4 p-3.5 rounded-xl bg-surface-card border border-border-subtle flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img class="w-11 h-11 rounded-full object-cover border border-brand-gold/30" data-alt="Editorial portrait avatar of an elegant European vintage curator with soft studio daylight and warm muted tones matching luxury editorial fashion." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-jaLMGkTSD-2T_cEb9K7Va8HQ51yfNXPXQK7lqMnY05psZQDyXzbK_oDte5mtSqO2W7Eu1HOu1WbhJ0NLdSDqIhfduZbvbBbaYm-gFLvEYguZNLpsIo0sgZtcJzm9icDQudfNyVzSHi_307AwRVhFCWlYT9qaUxCGE2fwzr368-1OdAL3djx-EVaE_hIsem7fojjndol6NWF34wJDteV453l_NaktlEQAW8wImcFnkRm9M0GO4GYMF8smaFmBiZ_HyXH8hZ1QY-w"/>
+<div class="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-surface-card flex items-center justify-center">
+<span class="material-symbols-outlined text-brand-gold text-[13px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-subheading text-subheading font-semibold text-text-primary">@elena_archive</span>
+</div>
+<div class="flex items-center gap-2 text-micro-tag font-micro-tag text-text-muted mt-0.5">
+<span class="text-primary font-medium">★ 4.9 (68 sales)</span>
+<span>•</span>
+<span class="flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]" data-icon="location_on">location_on</span>
+                London, UK
+              </span>
+</div>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-full border border-border-subtle bg-surface-canvas hover:bg-surface-muted text-subheading font-subheading text-text-primary transition-colors">
+          View closet
+        </button>
+</div>
+</section>
+<!-- Dimmed Backdrop Overlay behind the Drawer -->
+<div class="fixed inset-0 bg-text-primary/25 backdrop-blur-[2px] z-30 transition-opacity pointer-events-none max-w-md mx-auto"></div>
+<!-- ACTIVE SLIDE-UP OFFER DRAWER (OfferDrawer Component) -->
+<div class="fixed bottom-0 left-0 right-0 z-40 max-w-md mx-auto bg-surface-card/95 backdrop-blur-2xl rounded-t-[28px] border-t border-black/10 shadow-[0_-12px_44px_rgba(30,20,10,0.18)] flex flex-col transition-all duration-300">
+<!-- Brass Drawer Drag Handle -->
+<div class="w-full flex justify-center pt-3 pb-1">
+<div class="w-10 h-1 rounded-full bg-brand-gold/50"></div>
+</div>
+<!-- Drawer Header Bar -->
+<div class="flex items-center justify-between px-margin py-2 border-b border-border-subtle">
+<div class="flex flex-col">
+<span class="text-micro-tag font-micro-tag uppercase text-brand-bordeaux">Direct Negotiation</span>
+<h2 class="font-display-h1 text-subheading font-semibold text-text-primary">
+            Make an Offer to @elena_archive
+          </h2>
+</div>
+<button aria-label="Close Drawer" class="w-8 h-8 rounded-full bg-surface-muted flex items-center justify-center text-text-secondary hover:text-text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="close">close</span>
+</button>
+</div>
+<!-- Drawer Body Content -->
+<div class="p-margin flex flex-col gap-4 overflow-y-auto max-h-[75vh] custom-scrollbar">
+<!-- Miniature Item Recap Row -->
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-surface-muted/60 border border-border-subtle">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-surface-card border border-border-subtle flex items-center justify-center p-1 shrink-0 overflow-hidden">
+<img alt="Thumbnail" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1V5CSDzolR1Fsa4fGucsCv0mRnZfGpg0AgbmsGfhLFuTk3XOJ8SMB92Uvg6BeTySwvopWaTdHEzY7Q4bJcmoIsPcx8Gw4874ssXnH1KPcJs7N9ipSJaQInUTgoettl8wl-VbubQ_jpSLz1fjPMLixVnW9VH6fQUkCrMmtohbt1w3Gdai8yeKGlYeVin1dORXjYGuwZa2Um2VGoa_wmA454fUqPEd_DnrtFkqcGcQIlHs3j2IfuzGayr24E"/>
+</div>
+<div>
+<p class="font-subheading text-subheading font-medium text-text-primary truncate max-w-[190px]">Schott NYC Leather Jacket</p>
+<p class="text-micro-tag font-micro-tag text-text-muted">Listed at <span class="text-text-primary font-bold">$240.00</span></p>
+</div>
+</div>
+<div class="flex items-center gap-1 px-2 py-1 rounded bg-surface-card border border-border-subtle text-[11px] font-subheading text-text-secondary whitespace-nowrap">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+<span>Replies in &lt;15m</span>
+</div>
+</div>
+<!-- Quick-Offer Calculation Chips -->
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-micro-tag font-micro-tag text-text-secondary">SELECT OFFER AMOUNT</span>
+<span class="text-micro-tag font-micro-tag text-brand-bordeaux font-bold">15% SAVING SELECTED</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<!-- Active Option: -15% -->
+<button class="relative flex flex-col items-center justify-center py-2.5 px-2 rounded-xl bg-brand-gold text-on-primary border-2 border-brand-gold shadow-sm transition-all">
+<div class="absolute -top-2 px-1.5 py-0.2 bg-brand-bordeaux rounded-full text-[9px] font-micro-tag uppercase tracking-wider text-white">
+                Best chance
+              </div>
+<span class="text-micro-tag font-micro-tag opacity-90">-15%</span>
+<span class="font-price-hero text-[16px] leading-5 font-bold tracking-tight">$204.00</span>
+<span class="material-symbols-outlined text-[14px] mt-0.5" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</button>
+<!-- Option: -10% -->
+<button class="flex flex-col items-center justify-center py-2.5 px-2 rounded-xl bg-surface-card text-text-primary border border-border-subtle hover:border-brand-gold/60 transition-all">
+<span class="text-micro-tag font-micro-tag text-text-muted">-10%</span>
+<span class="font-price-hero text-[16px] leading-5 font-bold tracking-tight text-text-primary">$216.00</span>
+<span class="text-micro-tag font-micro-tag text-text-muted mt-0.5">High acceptance</span>
+</button>
+<!-- Option: Custom Offer -->
+<button class="flex flex-col items-center justify-center py-2.5 px-2 rounded-xl bg-surface-card text-text-primary border border-dashed border-outline-variant hover:border-brand-gold transition-all">
+<span class="material-symbols-outlined text-brand-gold text-[16px]" data-icon="edit">edit</span>
+<span class="font-subheading text-[13px] font-medium text-text-primary mt-0.5">Custom</span>
+<span class="text-micro-tag font-micro-tag text-text-muted">Type price</span>
+</button>
+</div>
+</div>
+<!-- Note to Seller Text Box -->
+<div class="flex flex-col gap-1.5">
+<label class="text-micro-tag font-micro-tag text-text-secondary uppercase">
+            Private Note to Seller
+          </label>
+<div class="relative">
+<textarea class="w-full p-3 rounded-xl bg-surface-muted/60 border border-border-subtle text-body-text font-body-text text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-1 focus:ring-brand-gold focus:border-brand-gold resize-none" placeholder="Add a note with your offer (e.g. Can you ship today?)..." rows="2">Hi Elena, love the archive piece! Ready to complete payment right away if $204 works for you.</textarea>
+</div>
+<!-- Quick Suggestion Note Tags -->
+<div class="flex flex-wrap gap-1.5 pt-1">
+<button class="px-2.5 py-1 rounded-full bg-surface-canvas border border-border-subtle text-[11px] font-subheading text-text-secondary hover:border-brand-gold hover:text-text-primary transition-colors">
+              ⚡ Ready to pay immediately
+            </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-canvas border border-border-subtle text-[11px] font-subheading text-text-secondary hover:border-brand-gold hover:text-text-primary transition-colors">
+              📦 Shipping to UK
+            </button>
+</div>
+</div>
+<!-- Drawer Action Button -->
+<div class="pt-2 flex flex-col gap-2">
+<button class="w-full py-3.5 px-4 rounded-full bg-brand-gold hover:bg-brand-gold-hover text-on-primary font-subheading font-medium tracking-wide shadow-md flex items-center justify-center gap-2 active:scale-[0.98] transition-all">
+<span>Send Offer ($204.00)</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Buyer Protection Trust Badge -->
+<div class="flex items-center justify-center gap-1.5 text-micro-tag font-micro-tag text-text-muted text-center py-1">
+<span class="material-symbols-outlined text-brand-gold text-[14px]" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span>3ft Buyer Protection • Funds held until delivered &amp; verified</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>
