@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>3ft — Elena Archive Profile</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Script -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed-variant": "#773033",
+            "secondary-fixed-dim": "#ffb3b3",
+            "on-surface-variant": "#4e453d",
+            "tertiary-fixed-dim": "#b5cad5",
+            "primary-fixed-dim": "#e0c1a4",
+            "inverse-primary": "#e0c1a4",
+            "surface-bright": "#fbf9f5",
+            "secondary-fixed": "#ffdad9",
+            "background": "#fbf9f5",
+            "text-secondary": "#6A6661",
+            "outline": "#80756c",
+            "on-primary-fixed": "#291806",
+            "brand-gold-hover": "#8F7359",
+            "on-tertiary": "#ffffff",
+            "on-surface": "#1b1c1a",
+            "inverse-surface": "#30312e",
+            "surface-muted": "#F4EFEA",
+            "text-muted": "#9B968F",
+            "tertiary-container": "#647782",
+            "on-error": "#ffffff",
+            "surface-container-highest": "#e4e2de",
+            "on-primary-container": "#fffbff",
+            "surface-dim": "#dbdad6",
+            "surface-canvas": "#FBF9F5",
+            "brand-gold": "#A78B71",
+            "surface-tint": "#725a43",
+            "surface-container-low": "#f5f3ef",
+            "surface-container": "#efeeea",
+            "brand-bordeaux": "#732D30",
+            "surface": "#fbf9f5",
+            "primary": "#6f5740",
+            "surface-glass": "rgba(255,255,255,0.75)",
+            "outline-variant": "#d2c4ba",
+            "on-primary-fixed-variant": "#58422d",
+            "primary-container": "#8a7057",
+            "on-tertiary-fixed": "#091e27",
+            "surface-container-high": "#eae8e4",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed": "#3d050b",
+            "secondary-container": "#ff9e9f",
+            "on-tertiary-container": "#fbfdff",
+            "secondary": "#944749",
+            "text-primary": "#161514",
+            "surface-variant": "#e4e2de",
+            "inverse-on-surface": "#f2f0ed",
+            "border-subtle": "rgba(22, 21, 20, 0.08)",
+            "on-secondary-container": "#7a3235",
+            "on-tertiary-fixed-variant": "#364953",
+            "on-error-container": "#93000a",
+            "error-container": "#ffdad6",
+            "tertiary": "#4b5f69",
+            "tertiary-fixed": "#d1e6f2",
+            "error": "#ba1a1a",
+            "primary-fixed": "#feddbf",
+            "surface-card": "#FFFFFF",
+            "surface-container-lowest": "#ffffff",
+            "on-background": "#1b1c1a",
+            "on-secondary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "margin": "1.25rem",
+            "gutter": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "subheading": [
+              "Inter"
+            ],
+            "brand-logo": [
+              "Playfair Display"
+            ],
+            "price-hero": [
+              "Playfair Display"
+            ],
+            "display-h1": [
+              "Playfair Display"
+            ],
+            "body-text": [
+              "Inter"
+            ],
+            "micro-tag": [
+              "Inter"
+            ]
+          },
+          "fontSize": {
+            "subheading": [
+              "15px",
+              {
+                "lineHeight": "20px",
+                "letterSpacing": "0",
+                "fontWeight": "500"
+              }
+            ],
+            "brand-logo": [
+              "28px",
+              {
+                "lineHeight": "32px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "700"
+              }
+            ],
+            "price-hero": [
+              "20px",
+              {
+                "lineHeight": "24px",
+                "letterSpacing": "0",
+                "fontWeight": "700"
+              }
+            ],
+            "display-h1": [
+              "24px",
+              {
+                "lineHeight": "28px",
+                "letterSpacing": "-0.01em",
+                "fontWeight": "600"
+              }
+            ],
+            "body-text": [
+              "14px",
+              {
+                "lineHeight": "20px",
+                "letterSpacing": "0",
+                "fontWeight": "400"
+              }
+            ],
+            "micro-tag": [
+              "10px",
+              {
+                "lineHeight": "14px",
+                "letterSpacing": "0.18em",
+                "fontWeight": "600"
+              }
+            ]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .studio-shadow {
+      filter: drop-shadow(0 12px 24px rgba(40, 30, 20, 0.08));
+    }
+    .cutout-glow {
+      box-shadow: inset 0 0 40px rgba(167, 139, 113, 0.04);
+    }
+  </style>
+</head>
+<body class="bg-surface-canvas text-text-primary antialiased selection:bg-brand-gold selection:text-white pb-28">
+<!-- Mobile Frame Container -->
+<div class="max-w-md mx-auto min-h-screen bg-surface-canvas relative flex flex-col">
+<!-- Top Navigation Anchor (Shared Component: TopAppBar aligned) -->
+<header class="sticky top-0 z-40 bg-surface/80 backdrop-blur-xl border-b border-border-subtle transition-all">
+<div class="flex justify-between items-center w-full px-margin py-space-sm max-w-md mx-auto">
+<button aria-label="Settings" class="w-9 h-9 rounded-full flex items-center justify-center text-text-primary hover:text-brand-bordeaux transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+<div class="flex items-center gap-1.5">
+<h1 class="font-display-h1 text-display-h1 text-text-primary tracking-tight font-semibold">Archive Rack</h1>
+<span class="w-1.5 h-1.5 rounded-full bg-brand-gold inline-block"></span>
+</div>
+<button aria-label="Share Archive" class="w-9 h-9 rounded-full flex items-center justify-center text-text-primary hover:text-brand-bordeaux transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[20px]">ios_share</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 px-margin pt-space-md">
+<!-- Curator Profile Header -->
+<section class="flex flex-col items-center text-center">
+<!-- Editorial Avatar -->
+<div class="relative group cursor-pointer">
+<div class="w-24 h-24 rounded-full p-1 border-2 border-brand-gold/60 transition-transform duration-300 group-hover:scale-105">
+<img alt="Elena Archive Portrait" class="w-full h-full rounded-full object-cover shadow-sm bg-surface-muted" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiPiK7Dz2050xn85hubptix2lIg9YPwHevr1dsmwN3ssyxlzj1j72gSya0g9QwA7ZugSkvxEgdAZDbjqpwGMHbXe4lBEcuW0v7akcj-KrCZkxESxlkIdG3zxMdrGil3dvfxUw7M5x5dK5iDUwn4wXKIgU2ADRiHeIkgga2_2WEByfLq-4isa9jKRuLAevFtIpNx5qnRhLJEOIP9B_I1g7toROMSlfyZrEbWe_EPkR2-mhnXEZe7TLFeLkJO4BNxoY-3vvmI0Cy5FY"/>
+</div>
+<!-- Verified Shield Badge -->
+<div class="absolute bottom-0 right-1 bg-brand-bordeaux text-on-secondary rounded-full w-6 h-6 flex items-center justify-center border-2 border-surface-card shadow-sm" title="Verified Curator">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<!-- Identity & Handle -->
+<div class="mt-3">
+<div class="flex items-center justify-center gap-1.5">
+<h2 class="font-display-h1 text-display-h1 text-text-primary tracking-tight">Elena Archive</h2>
+</div>
+<p class="font-subheading text-subheading text-text-secondary mt-0.5 flex items-center justify-center gap-1">
+<span>@elena_archive</span>
+<span class="text-text-muted">•</span>
+<span class="inline-flex items-center text-text-secondary">
+<span class="material-symbols-outlined text-[14px] mr-0.5 text-brand-gold">location_on</span>London, UK
+            </span>
+</p>
+</div>
+<!-- Editorial Bio -->
+<p class="font-body-text text-body-text text-text-secondary mt-3 max-w-xs leading-relaxed">
+          Curating 80s-90s leather, archival denim, and vintage luxury pieces. Direct dispatch from East London.
+        </p>
+<!-- Trust Badges -->
+<div class="flex flex-wrap items-center justify-center gap-2 mt-3.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-muted border border-border-subtle text-brand-bordeaux font-micro-tag text-micro-tag uppercase">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            Top Rated Curator
+          </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-muted border border-border-subtle text-brand-gold font-micro-tag text-micro-tag uppercase">
+<span class="material-symbols-outlined text-[12px]">auto_awesome</span>
+            AI Studio Verified
+          </span>
+</div>
+<!-- Seller Metrics Panel -->
+<div class="w-full mt-5 bg-surface-card border border-border-subtle rounded-xl py-3 px-2 flex items-center justify-around shadow-sm">
+<div class="flex-1 text-center">
+<div class="font-price-hero text-price-hero text-text-primary">68</div>
+<div class="font-micro-tag text-micro-tag uppercase text-text-muted mt-0.5">Sales</div>
+</div>
+<div class="w-[1px] h-6 bg-border-subtle"></div>
+<div class="flex-1 text-center">
+<div class="font-price-hero text-price-hero text-text-primary flex items-center justify-center gap-0.5">
+              4.9 <span class="material-symbols-outlined text-[15px] text-brand-gold" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div class="font-micro-tag text-micro-tag uppercase text-text-muted mt-0.5">Rating</div>
+</div>
+<div class="w-[1px] h-6 bg-border-subtle"></div>
+<div class="flex-1 text-center">
+<div class="font-price-hero text-price-hero text-text-primary">2.4k</div>
+<div class="font-micro-tag text-micro-tag uppercase text-text-muted mt-0.5">Followers</div>
+</div>
+<div class="w-[1px] h-6 bg-border-subtle"></div>
+<div class="flex-1 text-center">
+<div class="font-price-hero text-price-hero text-text-primary">98%</div>
+<div class="font-micro-tag text-micro-tag uppercase text-text-muted mt-0.5">Ship Speed</div>
+</div>
+</div>
+<!-- Action CTAs -->
+<div class="grid grid-cols-2 gap-3 w-full mt-4">
+<button class="w-full bg-brand-gold hover:bg-brand-gold-hover text-white font-subheading text-subheading rounded-full py-2.5 px-4 transition-all duration-200 shadow-sm active:scale-95 flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">add</span>
+            Follow
+          </button>
+<button class="w-full bg-surface-card border border-brand-gold text-brand-gold hover:bg-surface-muted font-subheading text-subheading rounded-full py-2.5 px-4 transition-all duration-200 active:scale-95 flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+            Ask Question
+          </button>
+</div>
+</section>
+<!-- Category Filter Tabs -->
+<section class="mt-8 border-b border-border-subtle sticky top-14 bg-surface-canvas/90 backdrop-blur-md z-30 pt-1">
+<div class="flex items-center gap-6 overflow-x-auto no-scrollbar">
+<button class="pb-3 text-text-primary font-subheading text-subheading font-semibold border-b-2 border-brand-bordeaux flex items-center gap-1.5 shrink-0 transition-colors">
+<span>Active Rack</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-muted text-brand-bordeaux font-micro-tag text-[10px]">14</span>
+</button>
+<button class="pb-3 text-text-secondary hover:text-text-primary font-subheading text-subheading border-b-2 border-transparent flex items-center gap-1.5 shrink-0 transition-colors">
+<span>Sold Archive</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-muted text-text-muted font-micro-tag text-[10px]">54</span>
+</button>
+<button class="pb-3 text-text-secondary hover:text-text-primary font-subheading text-subheading border-b-2 border-transparent flex items-center gap-1.5 shrink-0 transition-colors">
+<span>Reviews</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-muted text-text-muted font-micro-tag text-[10px]">62</span>
+</button>
+</div>
+</section>
+<!-- Active Wardrobe Masonry Studio Grid -->
+<section class="mt-5 pb-6">
+<div class="grid grid-cols-2 gap-3.5">
+<!-- Card 1: Leather Biker Jacket -->
+<article class="group bg-surface-card border border-border-subtle rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:shadow-md">
+<!-- Studio Stage Canvas -->
+<div class="relative w-full aspect-[4/5] bg-[#FEFBF6] cutout-glow flex items-center justify-center p-3 overflow-hidden">
+<span class="absolute top-2.5 left-2.5 font-micro-tag text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-surface-card/90 text-brand-bordeaux border border-border-subtle shadow-xs backdrop-blur-sm z-10">
+                AI STUDIO CLEANED
+              </span>
+<button aria-label="Bookmark" class="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-surface-card/85 backdrop-blur-sm border border-border-subtle flex items-center justify-center text-text-primary hover:text-brand-bordeaux transition-transform active:scale-90 z-10">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+</button>
+<img alt="Schott NYC Leather Biker Jacket" class="w-full h-full object-contain studio-shadow transition-transform duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1V5CSDzolR1Fsa4fGucsCv0mRnZfGpg0AgbmsGfhLFuTk3XOJ8SMB92Uvg6BeTySwvopWaTdHEzY7Q4bJcmoIsPcx8Gw4874ssXnH1KPcJs7N9ipSJaQInUTgoettl8wl-VbubQ_jpSLz1fjPMLixVnW9VH6fQUkCrMmtohbt1w3Gdai8yeKGlYeVin1dORXjYGuwZa2Um2VGoa_wmA454fUqPEd_DnrtFkqcGcQIlHs3j2IfuzGayr24E"/>
+</div>
+<!-- Card Content Details -->
+<div class="p-3 flex flex-col justify-between flex-1">
+<div>
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="px-2 py-0.5 bg-surface-muted text-text-secondary font-micro-tag text-[10px] rounded-full">
+                    Size L
+                  </span>
+<span class="text-text-muted text-[12px] flex items-center">
+<span class="material-symbols-outlined text-[13px] mr-0.5 text-brand-gold" style="font-variation-settings: 'FILL' 1;">favorite</span>
+                    142
+                  </span>
+</div>
+<h3 class="font-display-h1 text-[15px] leading-snug text-text-primary line-clamp-1 group-hover:text-brand-bordeaux transition-colors">
+                  Schott NYC Leather Biker Jacket
+                </h3>
+</div>
+<div class="mt-3 pt-2.5 border-t border-border-subtle flex items-center justify-between">
+<div>
+<span class="text-text-muted text-[10px] block uppercase font-micro-tag leading-none">Asking</span>
+<span class="font-price-hero text-price-hero text-brand-bordeaux">$240.00</span>
+</div>
+<button class="text-brand-gold hover:text-brand-gold-hover text-[11px] font-subheading font-medium tracking-tight px-2 py-1 rounded hover:bg-surface-muted transition-colors active:scale-95">
+                  Make Offer
+                </button>
+</div>
+</div>
+</article>
+<!-- Card 2: 90s Levi's Type III Denim -->
+<article class="group bg-surface-card border border-border-subtle rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:shadow-md">
+<!-- Studio Stage Canvas -->
+<div class="relative w-full aspect-[4/5] bg-[#FEFBF6] cutout-glow flex items-center justify-center p-3 overflow-hidden">
+<span class="absolute top-2.5 left-2.5 font-micro-tag text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-surface-card/90 text-tertiary border border-border-subtle shadow-xs backdrop-blur-sm z-10">
+                DIRECT DISPATCH
+              </span>
+<button aria-label="Bookmark" class="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-surface-card/85 backdrop-blur-sm border border-border-subtle flex items-center justify-center text-text-primary hover:text-brand-bordeaux transition-transform active:scale-90 z-10">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+</button>
+<img alt="90s Levi's Type III Denim" class="w-full h-full object-contain studio-shadow transition-transform duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1U4O75ZC-8j0G82SMU5EYnyRHWtP4SX9sbvnsamAj8qhNdeggYTKfYNSQyoeAdEPLk5nxeoDbUY83BprsYDUBNwHa0qm57dzk51e_N1E1Fy2DIyA0uos31eZi9-fo1S0OQWvRl2ZVPUfVywwSTX_UsTD-EVyLsOGBo46K5DD6fUL8eVfsIkkK8XDxFsmIV2lGw5-0PbMtltxn1QxO-MMlVPskeRDKVqwBJOdzxK-2bHS9ayX-vCZsa5Km8"/>
+</div>
+<!-- Card Content Details -->
+<div class="p-3 flex flex-col justify-between flex-1">
+<div>
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="px-2 py-0.5 bg-surface-muted text-text-secondary font-micro-tag text-[10px] rounded-full">
+                    Size M
+                  </span>
+<span class="text-text-muted text-[12px] flex items-center">
+<span class="material-symbols-outlined text-[13px] mr-0.5 text-brand-gold" style="font-variation-settings: 'FILL' 1;">favorite</span>
+                    89
+                  </span>
+</div>
+<h3 class="font-display-h1 text-[15px] leading-snug text-text-primary line-clamp-1 group-hover:text-brand-bordeaux transition-colors">
+                  90s Levi's Type III Denim
+                </h3>
+</div>
+<div class="mt-3 pt-2.5 border-t border-border-subtle flex items-center justify-between">
+<div>
+<span class="text-text-muted text-[10px] block uppercase font-micro-tag leading-none">Asking</span>
+<span class="font-price-hero text-price-hero text-brand-bordeaux">$120.00</span>
+</div>
+<button class="text-brand-gold hover:text-brand-gold-hover text-[11px] font-subheading font-medium tracking-tight px-2 py-1 rounded hover:bg-surface-muted transition-colors active:scale-95">
+                  Make Offer
+                </button>
+</div>
+</div>
+</article>
+<!-- Card 3: Mohair Knit Cardigan Sweater -->
+<article class="group bg-surface-card border border-border-subtle rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:shadow-md">
+<!-- Studio Stage Canvas -->
+<div class="relative w-full aspect-[4/5] bg-[#FEFBF6] cutout-glow flex items-center justify-center p-3 overflow-hidden">
+<span class="absolute top-2.5 left-2.5 font-micro-tag text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-surface-card/90 text-brand-gold border border-border-subtle shadow-xs backdrop-blur-sm z-10">
+                VINTAGE MINT
+              </span>
+<button aria-label="Bookmark" class="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-surface-card/85 backdrop-blur-sm border border-border-subtle flex items-center justify-center text-text-primary hover:text-brand-bordeaux transition-transform active:scale-90 z-10">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+</button>
+<img alt="Mohair Knit Cardigan Sweater" class="w-full h-full object-contain studio-shadow transition-transform duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuII1nKczDd_TwkYM075O5V9t9e93ob_6IFvRwmMmeX0iLtjtoFUz60ICeYuM_rinc6dIYlBCIUu6MXuui5wkc6KBxEZLXlgOQqN3Olsos4vH7zoEjtO751p-boWgRNDCEeJ64aTx_uBItjmCmwI95ev6UPa3lGU87wE4kR8v50VcGpbqN7Dzatw5i9VGm1fETm5vEBSeMx5GXlHTmi81PETTUDq7eK_92HTKzDIoU3AplokgAoUvWdxt4wJaRIiQ25qPREFgBMlM"/>
+</div>
+<!-- Card Content Details -->
+<div class="p-3 flex flex-col justify-between flex-1">
+<div>
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="px-2 py-0.5 bg-surface-muted text-text-secondary font-micro-tag text-[10px] rounded-full">
+                    Size S
+                  </span>
+<span class="text-text-muted text-[12px] flex items-center">
+<span class="material-symbols-outlined text-[13px] mr-0.5 text-brand-gold" style="font-variation-settings: 'FILL' 1;">favorite</span>
+                    210
+                  </span>
+</div>
+<h3 class="font-display-h1 text-[15px] leading-snug text-text-primary line-clamp-1 group-hover:text-brand-bordeaux transition-colors">
+                  Mohair Knit Cardigan Sweater
+                </h3>
+</div>
+<div class="mt-3 pt-2.5 border-t border-border-subtle flex items-center justify-between">
+<div>
+<span class="text-text-muted text-[10px] block uppercase font-micro-tag leading-none">Asking</span>
+<span class="font-price-hero text-price-hero text-brand-bordeaux">$145.00</span>
+</div>
+<button class="text-brand-gold hover:text-brand-gold-hover text-[11px] font-subheading font-medium tracking-tight px-2 py-1 rounded hover:bg-surface-muted transition-colors active:scale-95">
+                  Make Offer
+                </button>
+</div>
+</div>
+</article>
+<!-- Card 4: Vintage Carhartt Detroit Jacket -->
+<article class="group bg-surface-card border border-border-subtle rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:shadow-md">
+<!-- Studio Stage Canvas -->
+<div class="relative w-full aspect-[4/5] bg-[#FEFBF6] cutout-glow flex items-center justify-center p-3 overflow-hidden">
+<span class="absolute top-2.5 left-2.5 font-micro-tag text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-surface-card/90 text-primary border border-border-subtle shadow-xs backdrop-blur-sm z-10">
+                WEATHERED PATINA
+              </span>
+<button aria-label="Bookmark" class="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-surface-card/85 backdrop-blur-sm border border-border-subtle flex items-center justify-center text-text-primary hover:text-brand-bordeaux transition-transform active:scale-90 z-10">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+</button>
+<img alt="Vintage Carhartt Detroit Jacket" class="w-full h-full object-contain studio-shadow transition-transform duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7jHAJbPiBXfpkaylUq3fMQ_3BDOXJZRdOpiOFvkfkTxC3IRhxgNtDX16BRZzy2IEGdpm5WZ_w0jc9W6Tvv-_t4SwUtHhZ9qjCBBsyizvUlji35iKN_YgYe0Fo-pfQJ53AL_OXuBGjjXejbt9wMoMMYP5FVeynCg5LDE49as0ZS8rkcv4d_5H8UGogxi9cpKNkMhgSOqXSAbXiWv7rKB-mKTjNyrq1K2PQQJgOPrQXjPYpqt9LsHqENF0CC_U98PHOpVywo6RKd88"/>
+</div>
+<!-- Card Content Details -->
+<div class="p-3 flex flex-col justify-between flex-1">
+<div>
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="px-2 py-0.5 bg-surface-muted text-text-secondary font-micro-tag text-[10px] rounded-full">
+                    Size XL
+                  </span>
+<span class="text-text-muted text-[12px] flex items-center">
+<span class="material-symbols-outlined text-[13px] mr-0.5 text-brand-gold" style="font-variation-settings: 'FILL' 1;">favorite</span>
+                    340
+                  </span>
+</div>
+<h3 class="font-display-h1 text-[15px] leading-snug text-text-primary line-clamp-1 group-hover:text-brand-bordeaux transition-colors">
+                  Vintage Carhartt Detroit Jacket
+                </h3>
+</div>
+<div class="mt-3 pt-2.5 border-t border-border-subtle flex items-center justify-between">
+<div>
+<span class="text-text-muted text-[10px] block uppercase font-micro-tag leading-none">Asking</span>
+<span class="font-price-hero text-price-hero text-brand-bordeaux">$210.00</span>
+</div>
+<button class="text-brand-gold hover:text-brand-gold-hover text-[11px] font-subheading font-medium tracking-tight px-2 py-1 rounded hover:bg-surface-muted transition-colors active:scale-95">
+                  Make Offer
+                </button>
+</div>
+</div>
+</article>
+</div>
+</section>
+</main>
+<!-- Floating Glassmorphic Bottom Navigation Bar (Shared Component: BottomNavBar aligned) -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 flex justify-around items-center py-space-sm px-space-md mx-auto floating rounded-full mb-space-md mx-margin w-[calc(100%-2.5rem)] max-w-md bg-surface-glass backdrop-blur-xl border border-border-subtle shadow-lg shadow-on-background/5">
+<!-- Home -->
+<a aria-label="Home" class="flex flex-col items-center justify-center text-text-muted hover:text-brand-gold transition-colors duration-200 active:scale-90 group" href="#">
+<span class="material-symbols-outlined text-[22px]">home</span>
+<span class="font-micro-tag text-[9px] uppercase tracking-wider mt-0.5">Home</span>
+</a>
+<!-- Explore -->
+<a aria-label="Explore" class="flex flex-col items-center justify-center text-text-muted hover:text-brand-gold transition-colors duration-200 active:scale-90 group" href="#">
+<span class="material-symbols-outlined text-[22px]">search</span>
+<span class="font-micro-tag text-[9px] uppercase tracking-wider mt-0.5">Explore</span>
+</a>
+<!-- Sell (Elevated studio trigger) -->
+<button aria-label="Sell" class="flex flex-col items-center justify-center text-white -mt-5 transition-transform duration-200 active:scale-90">
+<div class="w-12 h-12 rounded-full bg-brand-bordeaux flex items-center justify-center shadow-md shadow-brand-bordeaux/30 border-2 border-surface-card">
+<span class="material-symbols-outlined text-[24px]">photo_camera</span>
+</div>
+<span class="font-micro-tag text-[9px] uppercase tracking-wider text-text-primary mt-1 font-semibold">Sell</span>
+</button>
+<!-- Inbox -->
+<a aria-label="Inbox" class="flex flex-col items-center justify-center text-text-muted hover:text-brand-gold transition-colors duration-200 active:scale-90 group relative" href="#">
+<span class="material-symbols-outlined text-[22px]">chat_bubble</span>
+<span class="font-micro-tag text-[9px] uppercase tracking-wider mt-0.5">Inbox</span>
+<span class="absolute top-0 right-1 w-2 h-2 rounded-full bg-brand-gold"></span>
+</a>
+<!-- Profile (Active Destination) -->
+<a aria-label="Profile" class="flex flex-col items-center justify-center text-brand-bordeaux font-semibold transition-colors duration-200 active:scale-90 relative" href="#">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-micro-tag text-[9px] uppercase tracking-wider mt-0.5">Profile</span>
+<span class="w-1 h-1 rounded-full bg-brand-bordeaux mt-0.5"></span>
+</a>
+</nav>
+</div>
+</body></html>
