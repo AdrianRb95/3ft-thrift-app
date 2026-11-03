@@ -1,7 +1,7 @@
-﻿# 🏷️ Cloey Thrift App: Project Brief & Execution Roadmap
+# 🏷️ 3FT (Social Thrift Marketplace): Project Brief & Execution Roadmap
 
 ## 📌 Overview
-An AI-powered social thrift marketplace mobile app inspired by **Cloey** (`cloey.app`).
+An AI-powered social thrift marketplace mobile app branded as **3FT**.
 Sellers snap photos of clothes on their bed or hanger; AI automatically cleans and isolates the garment as a studio flat-lay with ambient lighting and soft contact shadows. The app publishes these into an editorial, Instagram-style feed where buyers can browse, like, comment, and send direct messages (DMs) with offers.
 
 ---

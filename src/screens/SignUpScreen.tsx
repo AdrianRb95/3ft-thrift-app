@@ -25,7 +25,7 @@ import { useAppStore } from '../store/useAppStore';
 
 export const SignUpScreen: React.FC = () => {
   const { setAuthenticated, setActiveScreen } = useAppStore();
-  const [handle, setHandle] = useState<string>('cloeystudio');
+  const [handle, setHandle] = useState<string>('threeftstudio');
   const [email, setEmail] = useState<string>('curator@vintagearchive.com');
   const [password, setPassword] = useState<string>('VintageArchive2025');
   const [showPassword, setShowPassword] = useState<boolean>(false);
