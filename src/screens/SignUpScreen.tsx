@@ -20,6 +20,8 @@ import {
   EyeOff,
   ArrowRight,
   CheckCircle,
+  User,
+  ShoppingBag,
 } from 'lucide-react-native';
 import { useAppStore } from '../store/useAppStore';
 
@@ -33,6 +35,11 @@ export const SignUpScreen: React.FC = () => {
   const handleCreateAccount = () => {
     setAuthenticated(true);
     setActiveScreen('ONBOARDING');
+  };
+
+  const handleQuickLogin = (role: 'seller' | 'buyer') => {
+    setAuthenticated(true);
+    setActiveScreen('FEED');
   };
 
   return (
@@ -53,7 +60,7 @@ export const SignUpScreen: React.FC = () => {
             <View className="flex-row items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-[rgba(22,21,20,0.08)] shadow-xs">
               <Globe size={13} color="#A78B71" />
               <Text className="text-[10px] font-semibold uppercase tracking-wider text-[#6A6661]">
-                US / USD ($)
+                CR / USD ($) & CRC (₡)
               </Text>
             </View>
 
@@ -61,13 +68,13 @@ export const SignUpScreen: React.FC = () => {
               activeOpacity={0.7}
               className="flex-row items-center gap-1"
             >
-              <Text className="text-xs text-[#6A6661]">Help</Text>
+              <Text className="text-xs text-[#6A6661]">Ayuda</Text>
               <HelpCircle size={14} color="#9B968F" />
             </TouchableOpacity>
           </View>
 
           {/* Editorial Hero Branding */}
-          <View className="mt-4 mb-6">
+          <View className="mt-4 mb-5">
             <View className="flex-row items-center justify-between mb-2">
               <Text 
                 style={{ fontFamily: 'serif' }}
@@ -90,14 +97,40 @@ export const SignUpScreen: React.FC = () => {
             </Text>
 
             <Text className="text-xs text-[#6A6661] leading-relaxed mb-3">
-              Buy iconic vintage archives or sell in seconds with on-device AI studio cutouts.
+              Compra piezas vintage curadas o vende en segundos con recorte de estudio automático por IA.
             </Text>
 
             <View className="flex-row items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-[#A78B71]/40 shadow-xs">
               <Sparkles size={13} color="#A78B71" />
               <Text className="text-[10px] font-bold text-[#6A6661] uppercase tracking-wider">
-                AI STUDIO ENHANCED • VERIFIED BUYER PROTECTION
+                AI STUDIO ENHANCED • CORREOS DE COSTA RICA
               </Text>
+            </View>
+          </View>
+
+          {/* Quick 1-Click Demo Profiles */}
+          <View className="mb-5 p-3.5 rounded-2xl bg-white border border-[#A78B71]/35 shadow-xs space-y-2.5">
+            <Text className="text-[10px] font-bold uppercase tracking-widest text-[#A78B71] text-center">
+              Acceso Rápido Demo (1 Clic)
+            </Text>
+            <View className="flex-row gap-2">
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() => handleQuickLogin('seller')}
+                className="flex-1 py-3 px-3 rounded-xl bg-[#FBF9F5] border border-[rgba(22,21,20,0.08)] items-center"
+              >
+                <Text className="text-xs font-bold text-[#161514]">@threeftstudio</Text>
+                <Text className="text-[10px] text-[#A78B71] font-medium">Curadora / Vendedora</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() => handleQuickLogin('buyer')}
+                className="flex-1 py-3 px-3 rounded-xl bg-[#FBF9F5] border border-[rgba(22,21,20,0.08)] items-center"
+              >
+                <Text className="text-xs font-bold text-[#161514]">@nico_vintage</Text>
+                <Text className="text-[10px] text-[#A78B71] font-medium">Comprador Vintage</Text>
+              </TouchableOpacity>
             </View>
           </View>
 
@@ -110,7 +143,7 @@ export const SignUpScreen: React.FC = () => {
               className="w-full py-3.5 px-4 bg-[#161514] active:bg-black rounded-full flex-row items-center justify-center gap-2 shadow-xs"
             >
               <Text className="text-sm font-semibold text-white">
-                Continue with Apple
+                Continuar con Apple
               </Text>
             </TouchableOpacity>
 
@@ -121,7 +154,7 @@ export const SignUpScreen: React.FC = () => {
               className="w-full py-3.5 px-4 bg-white active:bg-[#F4EFEA] border border-[rgba(22,21,20,0.08)] rounded-full flex-row items-center justify-center gap-2 shadow-xs"
             >
               <Text className="text-sm font-semibold text-[#161514]">
-                Continue with Google
+                Continuar con Google
               </Text>
             </TouchableOpacity>
 
@@ -129,7 +162,7 @@ export const SignUpScreen: React.FC = () => {
             <View className="flex-row items-center my-3">
               <View className="flex-1 h-[1px] bg-[rgba(22,21,20,0.08)]" />
               <Text className="px-3 text-[10px] font-bold uppercase tracking-wider text-[#9B968F]">
-                or with email
+                o con correo electrónico
               </Text>
               <View className="flex-1 h-[1px] bg-[rgba(22,21,20,0.08)]" />
             </View>
@@ -140,7 +173,7 @@ export const SignUpScreen: React.FC = () => {
             {/* Handle Input */}
             <View>
               <Text className="text-[10px] font-bold uppercase tracking-wider text-[#6A6661] mb-1">
-                Archive Handle
+                Handle de Archivo
               </Text>
               <View className="relative flex-row items-center bg-[#FBF9F5] border border-[rgba(22,21,20,0.08)] rounded-xl px-3 py-2.5">
                 <Text className="text-sm font-medium text-[#9B968F] mr-1">@</Text>
@@ -153,7 +186,7 @@ export const SignUpScreen: React.FC = () => {
                 <View className="flex-row items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200">
                   <View className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
                   <Text className="text-[10px] font-semibold text-emerald-700">
-                    Available
+                    Disponible
                   </Text>
                 </View>
               </View>
@@ -162,7 +195,7 @@ export const SignUpScreen: React.FC = () => {
             {/* Email Input */}
             <View>
               <Text className="text-[10px] font-bold uppercase tracking-wider text-[#6A6661] mb-1">
-                Email Address
+                Correo Electrónico
               </Text>
               <View className="flex-row items-center bg-[#FBF9F5] border border-[rgba(22,21,20,0.08)] rounded-xl px-3 py-2.5">
                 <Mail size={16} color="#9B968F" style={{ marginRight: 8 }} />
@@ -180,10 +213,10 @@ export const SignUpScreen: React.FC = () => {
             <View>
               <View className="flex-row justify-between items-center mb-1">
                 <Text className="text-[10px] font-bold uppercase tracking-wider text-[#6A6661]">
-                  Password
+                  Contraseña
                 </Text>
                 <Text className="text-[9px] font-medium text-[#9B968F] uppercase">
-                  Min. 8 chars
+                  Mín. 8 caracteres
                 </Text>
               </View>
               <View className="flex-row items-center bg-[#FBF9F5] border border-[rgba(22,21,20,0.08)] rounded-xl px-3 py-2.5">
@@ -215,7 +248,7 @@ export const SignUpScreen: React.FC = () => {
             className="w-full py-4 rounded-full bg-[#A78B71] active:bg-[#8F7359] flex-row items-center justify-center gap-2 shadow-md mb-4"
           >
             <Text className="text-base font-bold text-white tracking-wide">
-              Create Archive Account
+              Crear Cuenta de Archivo
             </Text>
             <ArrowRight size={18} color="#FFFFFF" />
           </TouchableOpacity>
@@ -230,8 +263,8 @@ export const SignUpScreen: React.FC = () => {
             className="items-center py-2"
           >
             <Text className="text-xs text-[#6A6661]">
-              Already have an archive account?{' '}
-              <Text className="font-bold text-[#732D30]">Sign in</Text>
+              ¿Ya tienes cuenta de archivo?{' '}
+              <Text className="font-bold text-[#732D30]">Iniciar sesión</Text>
             </Text>
           </TouchableOpacity>
         </ScrollView>
